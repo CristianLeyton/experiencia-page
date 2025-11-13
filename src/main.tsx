@@ -1,26 +1,78 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
 
 //Esto es para inicializar el tema deseado en la web
-(function() {
+(function () {
   try {
-    const theme = localStorage.getItem('theme');
-    if (theme == 'dark') {
-      document.documentElement.classList.add('dark');
-    } else if (theme === 'light') {
-      document.documentElement.classList.remove('dark');
+    const theme = localStorage.getItem("theme");
+    if (theme == "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (theme === "light") {
+      document.documentElement.classList.remove("dark");
     } else {
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem("theme", "light");
     }
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 })();
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <div className="min-h-screen w-full relative">
+      {/* Dashed Bottom Fade Grid */}
+      <div
+        className="absolute inset-0 -z-10
+    [--grid-color:#ddd]
+    dark:[--grid-color:#353535]
+  "
+        style={{
+          backgroundImage: `
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)
+    `,
+          backgroundSize: "20px 20px",
+          backgroundPosition: "0 0, 0 0",
+          maskImage: `
+      repeating-linear-gradient(
+        to right,
+        black 0px,
+        black 3px,
+        transparent 3px,
+        transparent 8px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        black 0px,
+        black 3px,
+        transparent 3px,
+        transparent 8px
+      ),
+      radial-gradient(ellipse 100% 80% at 50% 100%, black 50%, transparent 90%)
+    `,
+          WebkitMaskImage: `
+      repeating-linear-gradient(
+        to right,
+        black 0px,
+        black 3px,
+        transparent 3px,
+        transparent 8px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        black 0px,
+        black 3px,
+        transparent 3px,
+        transparent 8px
+      ),
+      radial-gradient(ellipse 100% 80% at 50% 100%, black 50%, transparent 90%)
+    `,
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+        }}
+      />
+
+      {<App />}
+    </div>
+  </StrictMode>
+);

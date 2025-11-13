@@ -28,12 +28,12 @@ export function Header() {
   }
 
   return (
-    <header className="dark:bg-primary dark:text-white sticky top-0">
+    <header className="dark:text-white sticky top-0 z-10">
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
         <a href="/">
           <img
             src={Logo}
-            className="h-20"
+            className="h-16 md:h-20"
             alt="Logo Iglesia Experiencia con Dios"
           />
         </a>
@@ -48,7 +48,7 @@ export function Header() {
     w-full md:w-auto 
     h-dvh md:h-auto
     md:transition-none 
-    gap-8 
+    gap-8 text-2xl sm:text-lg 
     ${openMenu ? "left-0 visible" : "invisible -left-[150%] md:visible md:left-0"}
   `}
 >

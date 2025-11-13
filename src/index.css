@@ -1,28 +1,61 @@
-
-
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   src: url(./assets/fonts/Poppins.ttf);
 }
 
 .font-poppins {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 @font-face {
-  font-family: 'Onest';
+  font-family: "Onest";
   src: url(./assets/fonts/Onest.ttf);
 }
 
 .font-onest {
-  font-family: 'Onest';
+  font-family: "Onest";
 }
 
 @font-face {
-  font-family: 'Swash';
+  font-family: "Swash";
   src: url(./assets/fonts/BerkshireSwash.ttf);
 }
 
 .font-swash {
-  font-family: 'Swash';
+  font-family: "Swash";
+}
+
+.fade-in-animation div {
+  animation: fade-in 0.4s ease-in-out forwards;
+}
+
+.fade-in-animation div:nth-child(1) {
+  opacity: 0;
+  animation-delay: 0s;
+}
+
+.fade-in-animation div:nth-child(2) {
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.fade-in-animation div:nth-child(3) {
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+
+.fade-in-animation div:nth-child(4) {
+  opacity: 0;
+  animation-delay: 0.6s;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(20px) scale(1.1);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
 }
