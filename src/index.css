@@ -1,10 +1,28 @@
 
 
-:root { 
-  --primer-color: #1d1d1d;
+@font-face {
+  font-family: 'Poppins';
+  src: url(./assets/fonts/Poppins.ttf);
 }
 
-.bg-primary {
-  background-color: var(--primer-color);
+.font-poppins {
+  font-family: 'Poppins';
 }
 
+@font-face {
+  font-family: 'Onest';
+  src: url(./assets/fonts/Onest.ttf);
+}
+
+.font-onest {
+  font-family: 'Onest';
+}
+
+@font-face {
+  font-family: 'Swash';
+  src: url(./assets/fonts/BerkshireSwash.ttf);
+}
+
+.font-swash {
+  font-family: 'Swash';
+}
