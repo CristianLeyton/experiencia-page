@@ -48,7 +48,7 @@ createRoot(document.getElementById("root")!).render(
         transparent 3px,
         transparent 8px
       ),
-      radial-gradient(ellipse 100% 10% at 50% 100%, black 10%, transparent 90%)
+      radial-gradient(ellipse 100% 10% at 50% 100%, black 50%, transparent 90%)
     `,
           WebkitMaskImage: `
       repeating-linear-gradient(
@@ -65,7 +65,7 @@ createRoot(document.getElementById("root")!).render(
         transparent 3px,
         transparent 8px
       ),
-      radial-gradient(ellipse 100% 10% at 50% 100%, black 10%, transparent 90%)
+      radial-gradient(ellipse 100% 10% at 50% 100%, black 50%, transparent 90%)
     `,
           maskComposite: "intersect",
           WebkitMaskComposite: "source-in",
