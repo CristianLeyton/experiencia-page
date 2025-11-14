@@ -78,7 +78,7 @@ export function Meetings() {
           <Card title="Reunion general" text="Sábado 19:30hs" iconTime />
           <Card title="Reunion general" text="Domingo 10:30hs" iconTime />
         </div>
-        <div className="w-full xl:w-[80%] h-full p-1 bg-secondary rounded-xl">
+        <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl">
           <div
             id="map"
             className="h-[400px] lg:h-[450px] w-full rounded-xl z-0"
