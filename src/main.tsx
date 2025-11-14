@@ -23,8 +23,8 @@ createRoot(document.getElementById("root")!).render(
       {/* Dashed Bottom Fade Grid */}
       <div
         className="absolute inset-0 -z-10
-    [--grid-color:#1d1d1d]
-    dark:[--grid-color:#ccc]
+    [--grid-color:#7A7A7A]
+    dark:[--grid-color:#CCCCCC]
   "
         style={{
           backgroundImage: `
