@@ -24,7 +24,7 @@ createRoot(document.getElementById("root")!).render(
       <div
         className="absolute inset-0 -z-10
     [--grid-color:#7A7A7A]
-    dark:[--grid-color:#CCCCCC]
+    dark:[--grid-color:#B0B0B0]
   "
         style={{
           backgroundImage: `
