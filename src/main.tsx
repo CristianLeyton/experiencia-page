@@ -23,8 +23,8 @@ createRoot(document.getElementById("root")!).render(
       {/* Dashed Bottom Fade Grid */}
       <div
         className="absolute inset-0 -z-10
-    [--grid-color:#ddd]
-    dark:[--grid-color:#353535]
+    [--grid-color:#]
+    dark:[--grid-color:#fff]
   "
         style={{
           backgroundImage: `
@@ -48,7 +48,7 @@ createRoot(document.getElementById("root")!).render(
         transparent 3px,
         transparent 8px
       ),
-      radial-gradient(ellipse 100% 80% at 50% 100%, black 50%, transparent 90%)
+      radial-gradient(ellipse 100% 10% at 50% 100%, black 10%, transparent 90%)
     `,
           WebkitMaskImage: `
       repeating-linear-gradient(
@@ -65,7 +65,7 @@ createRoot(document.getElementById("root")!).render(
         transparent 3px,
         transparent 8px
       ),
-      radial-gradient(ellipse 100% 80% at 50% 100%, black 50%, transparent 90%)
+      radial-gradient(ellipse 100% 10% at 50% 100%, black 10%, transparent 90%)
     `,
           maskComposite: "intersect",
           WebkitMaskComposite: "source-in",
