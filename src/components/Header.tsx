@@ -12,7 +12,7 @@ function Item({ href, children }: ItemProps) {
   return (
     <a
       href={href}
-      className="relative py-1 hover:text-yellow-500 transition-all duration-300 after:border-b-2 after:border-yellow-500 after:bottom-0 after:left-0 after:absolute after:w-0 hover:after:w-full after:transition-all after:duration-300 
+      className="relative py-1 hover:text-yellow-500 transition-all duration-300 after:border-b-2 after:border-yellow-500 after:bottom-0 after:left-0 after:absolute after:w-0 hover:after:w-full after:transition-all after:duration-300 active:text-yellow-500
     "
     >
       {children}
@@ -28,7 +28,7 @@ export function Header() {
   }
 
   return (
-    <header className="dark:text-white sticky top-0 z-10">
+    <header className="dark:text-white sticky top-0 z-10 bg-white dark:bg-primary">
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
         <a href="/">
           <img
@@ -37,8 +37,8 @@ export function Header() {
             alt="Logo Iglesia Experiencia con Dios"
           />
         </a>
-<nav
-  className={`absolute md:static 
+        <nav
+          className={`absolute md:static 
     border-r-2 md:border-none 
     border-primary dark:border-white 
     top-0 flex flex-col md:flex-row 
@@ -48,13 +48,16 @@ export function Header() {
     w-full md:w-auto 
     h-dvh md:h-auto
     md:transition-none 
-    gap-8 text-2xl sm:text-lg 
-    ${openMenu ? "left-0 visible" : "invisible -left-[150%] md:visible md:left-0"}
+    gap-8 text-2xl sm:text-base 2xl:text-lg
+    ${
+      openMenu
+        ? "left-0 visible"
+        : "invisible -left-[150%] md:visible md:left-0"
+    }
   `}
->
-
-          <Item href="#">Bienvenida</Item>
-          <Item href="#">Reuniones</Item>
+        >
+          <Item href="#inicio">Bienvenida</Item>
+          <Item href="#reuniones">Reuniones</Item>
           <Item href="#">Conectar</Item>
           <Item href="#">Actividades</Item>
           <Item href="#">Contribuir</Item>
