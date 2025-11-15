@@ -56,7 +56,7 @@ export function Meetings() {
 
       <article className="grid md:grid-cols-2 gap-6 items-center justify-items-center mt-6">
         <div className="flex flex-col gap-4 w-full max-w-lg group">
-          <div className="text-center border rounded-xl p-4 border-primary dark:border-white bg-white dark:bg-black group-hover:border-yellow-500 transition-colors duration-300">
+          <div className="text-center border rounded-xl p-4 border-primary dark:border-white bg-white dark:bg-primary group-hover:border-yellow-500 transition-colors duration-300">
             <p className="text-lg xl:text-xl flex flex-col gap-2">
               <a
                 href={linkGoogle}
