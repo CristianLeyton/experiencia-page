@@ -1,4 +1,4 @@
-export function IconMFacebook({ className }: { className?: string }) {
+export function IconFacebook({ className }: { className?: string }) {
   return (
     <svg
       className={`size-6 ${className}`}

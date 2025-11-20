@@ -1,7 +1,7 @@
-import LogoGrande from "../assets/images/logo-500x500.png";
-import { IconMFacebook } from "./icons/IconFacebook";
-import { IconInstagram } from "./icons/IconInstagram";
-import { IconYoutube } from "./icons/IconYoutube";
+import LogoGrande from "../../assets/images/logo-500x500.png";
+import { IconFacebook } from "../icons/IconFacebook";
+import { IconInstagram } from "../icons/IconInstagram";
+import { IconYoutube } from "../icons/IconYoutube";
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
   facebook: "https://web.facebook.com/iglesiaexperienciacondios",
@@ -10,7 +10,10 @@ const redes = {
 
 export function Hero() {
   return (
-    <section id="inicio" className="text-center text-primary dark:text-white grid place-items-center fade-in-animation container mx-auto px-4 gap-6 md:gap-4 2xl:gap-6 overflow-hidden pb-6 scroll-m-24">
+    <section
+      id="inicio"
+      className="text-center text-primary dark:text-white grid place-items-center fade-in-animation container mx-auto px-4 gap-6 md:gap-4 2xl:gap-6 overflow-hidden pb-6 scroll-m-24"
+    >
       {/* Logo */}
       <div>
         <img
@@ -22,7 +25,7 @@ export function Hero() {
       {/* Bienvenida */}
       <div>
         <h3 className="text-5xl md:text-6xl 2xl:text-7xl font-swash">
-          Bienvenido a Casa
+          Bienvenidos a Casa
         </h3>
       </div>
       {/* Botón de acción */}
@@ -54,7 +57,7 @@ export function Hero() {
           <IconInstagram className="size-10 md:size-12" />
         </a>
         <a href={redes.facebook} target="_blank">
-          <IconMFacebook className="size-10 md:size-12" />
+          <IconFacebook className="size-10 md:size-12" />
         </a>
         <a href={redes.youtube} target="_blank">
           <IconYoutube className="size-11 md:size-13" />

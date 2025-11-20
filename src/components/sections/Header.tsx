@@ -1,17 +1,19 @@
-import Logo from "../assets/images/logo-120x100.png";
-import { SwitchTheme } from "./utilities/SwitchTheme.tsx";
-import { MenuHamburger } from "./utilities/MenuHamburger.tsx";
+import Logo from "../../assets/images/logo-120x100.png";
+import { SwitchTheme } from "../utilities/SwitchTheme.tsx";
+import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
 import { useState } from "react";
 
 type ItemProps = {
   href: string;
   children: React.ReactNode;
+  onOpenMenu: any;
 };
 
-function Item({ href, children }: ItemProps) {
+function Item({ href, children, onOpenMenu }: ItemProps) {
   return (
     <a
       href={href}
+      onClick={onOpenMenu}
       className="relative py-1 hover:text-yellow-500 transition-all duration-300 after:border-b-2 after:border-yellow-500 after:bottom-0 after:left-0 after:absolute after:w-0 hover:after:w-full after:transition-all after:duration-300 active:text-yellow-500
     "
     >
@@ -56,11 +58,21 @@ export function Header() {
     }
   `}
         >
-          <Item href="#inicio">Bienvenida</Item>
-          <Item href="#reuniones">Reuniones</Item>
-          <Item href="#">Conectar</Item>
-          <Item href="#">Actividades</Item>
-          <Item href="#">Contribuir</Item>
+          <Item href="#inicio" onOpenMenu={handleoOpenMenu}>
+            Bienvenida
+          </Item>
+          <Item href="#reuniones" onOpenMenu={handleoOpenMenu}>
+            Reuniones
+          </Item>
+          <Item href="#conectar" onOpenMenu={handleoOpenMenu}>
+            Conectar
+          </Item>
+          <Item href="#" onOpenMenu={handleoOpenMenu}>
+            Actividades
+          </Item>
+          <Item href="#" onOpenMenu={handleoOpenMenu}>
+            Contribuir
+          </Item>
         </nav>
 
         <span className="flex gap-4">
