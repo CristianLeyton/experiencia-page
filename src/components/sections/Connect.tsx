@@ -1,4 +1,5 @@
 import { Title } from "../utilities/Title";
+import { CardConnect } from "../utilities/CardConnect";
 
 export function Connect() {
   return (
@@ -12,8 +13,35 @@ export function Connect() {
           <p className="xl:text-lg">
             Conectarse con nuestra comunidad y conocer a otros miembros de
             Iglesia Experiencia con Dios.
+            <br />
+            <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+              Completa el formulario y nos pondremos en contacto con tigo
+            </p>
           </p>
         </div>
+
+        <section className="pt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <CardConnect
+            title="Bienvenido a casa"
+            text="¿Es tu primera vez en nuestra iglesia? Quizá podamos compartir un café.  ¡Queremos conocerte!"
+            iconCoffee
+            link="https://docs.google.com/forms/d/e/1FAIpQLSebnUXgz6GESi4EL2Z_meCRMF_rsbUG-t9q0fJIOPD0ZqdVyg/viewform"
+          />
+
+          <CardConnect
+            title="¿Podemos orar por vos?"
+            text="Comparte tu motivo de oración con nosotros. Sea lo que sea que estes atravesando, Dios quiere oirte."
+            iconPray
+            link="https://docs.google.com/forms/d/e/1FAIpQLSeNN1kQaIc3qHGPXfi8CQJo2YmtRfBF8fLVwt3zVmKQOf_lsw/viewform"
+          />
+
+          <CardConnect
+            title="¡Únete a un grupo de conexión!"
+            text="Reuniones con grupos pequeños para compartir de forma más personal y conectar con otros miembros de Iglesia."
+            iconGroup
+            link="https://docs.google.com/forms/d/e/1FAIpQLSfzY5vLLmEHW6E7QYNTxM5qzqucxGVUkjy62vIdMLwSv7VEhQ/viewform"
+          />
+        </section>
       </div>
     </section>
   );

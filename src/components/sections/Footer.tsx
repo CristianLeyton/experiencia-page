@@ -64,19 +64,19 @@ export function Footer() {
 
         <div className="flex justify-center gap-5 md:gap-4 flex-nowrap *:bg-zinc-900 *:text-white  *:inline-block *:p-1 *:rounded-lg *:scale-125 *:md:scale-125 *:transition">
           <a
-            href={contact.facebook}
-            className="hover:text-yellow-500"
-            title="Cuenta de facebook"
-          >
-            <IconFacebook className="" />
-          </a>
-          <a
             href={contact.instagram}
             target="_blank"
             className="hover:text-yellow-500"
             title="Cuenta de Instagram"
           >
             <IconInstagram className="" />
+          </a>
+          <a
+            href={contact.facebook}
+            className="hover:text-yellow-500"
+            title="Cuenta de facebook"
+          >
+            <IconFacebook className="" />
           </a>
           {/*           <a
             href={contact.whatsapp}

@@ -82,7 +82,7 @@ export function Meetings() {
           <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl">
             <div
               id="map"
-              className="h-[400px] lg:h-[450px] w-full rounded-xl z-0"
+              className="h-[300px] md:h-full lg:h-[400px] w-full rounded-xl z-0"
             ></div>
           </div>
         </article>
