@@ -49,7 +49,7 @@ export function Meetings() {
         <div className="text-center flex flex-col gap-4">
           <Title text="Nuestras reuniones" />
           <p className="xl:text-lg">
-            Un tiempo de alabanza, enseñanza de la Palabra y comunón. Estas
+            Un tiempo de alabanza, enseñanza de la Palabra y comunión. Estas
             invitado a cualquiera de nuestras reuniones generales.
           </p>
         </div>

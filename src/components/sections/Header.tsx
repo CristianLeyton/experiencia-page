@@ -67,10 +67,10 @@ export function Header() {
           <Item href="#conectar" onOpenMenu={handleoOpenMenu}>
             Conectar
           </Item>
-          <Item href="#" onOpenMenu={handleoOpenMenu}>
+          <Item href="#actividades" onOpenMenu={handleoOpenMenu}>
             Actividades
           </Item>
-          <Item href="#" onOpenMenu={handleoOpenMenu}>
+          <Item href="#contribuir" onOpenMenu={handleoOpenMenu}>
             Contribuir
           </Item>
         </nav>

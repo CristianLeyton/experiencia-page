@@ -14,8 +14,8 @@ export function Connect() {
             Conectarse con nuestra comunidad y conocer a otros miembros de
             Iglesia Experiencia con Dios.
             <br />
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-              Completa el formulario y nos pondremos en contacto con tigo
+            <p className="text-zinc-500 dark:text-zinc-400 text-sm pt-1">
+              Completa un formulario y nos pondremos en contacto contigo
             </p>
           </p>
         </div>
