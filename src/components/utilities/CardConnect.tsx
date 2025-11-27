@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 function IconCoffee(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
