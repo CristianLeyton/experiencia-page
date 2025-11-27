@@ -1,3 +1,4 @@
+import { IconChebron } from "../icons/IconChebron";
 import { Title } from "../utilities/Title";
 import { useState } from "react";
 
@@ -26,6 +27,15 @@ function CopyToClipboard(props: React.SVGProps<SVGSVGElement>) {
 export function Contribute() {
   const ALIAS_TEXT = "CUENTA.EXPERIENCIA";
   const [copyStatus, setCopyStatus] = useState(ALIAS_TEXT); // Usamos el alias como estado inicial
+
+  const areas = [
+    "Niños y Adolescentes",
+    "Alabanza y Música",
+    "Equipo de Bienvenida",
+    "Equipo de Refrigerio",
+    "Redes Sociales y Diseño",
+    "Multimedia y Sonido",
+  ];
 
   const handleCopy = () => {
     // 1. Crear un elemento de entrada temporal
@@ -63,7 +73,7 @@ export function Contribute() {
   return (
     <section
       id="contribuir"
-      className="scroll-m-20 py-12 px-4 text-primary dark:text-white container mx-auto"
+      className="scroll-m-20 py-8 px-4 text-primary dark:text-white container mx-auto"
     >
       <div className="text-center flex flex-col gap-4">
         <Title text="Contribuir" />
@@ -91,30 +101,14 @@ export function Contribute() {
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-primary dark:text-secondary my-4 text-left">
-            <li className="flex items-center">
-              <span className="text-yellow-500 mr-2">&bull;</span> Equipo de
-              Niños y Adolescentes
-            </li>
-            <li className="flex items-center">
-              <span className="text-yellow-500 mr-2">&bull;</span> Alabanza y
-              Música
-            </li>
-            <li className="flex items-center">
-              <span className="text-yellow-500 mr-2">&bull;</span> Equipo de
-              Bienvenida
-            </li>
-            <li className="flex items-center">
-              <span className="text-yellow-500 mr-2">&bull;</span> Equipo de
-              Refrigerio
-            </li>
-            <li className="flex items-center">
-              <span className="text-yellow-500 mr-2">&bull;</span> Redes
-              Sociales y Diseño
-            </li>
-            <li className="flex items-center">
-              <span className="text-yellow-500 mr-2">&bull;</span> Multimedia y
-              Sonido
-            </li>
+            {areas.map((area, index) => (
+              <li className="flex items-center" key={index}>
+                <span className="text-yellow-500 mr-2 mb-0.5">
+                  <IconChebron className="text-yellow-500" />
+                </span>{" "}
+                <span>{area}</span>
+              </li>
+            ))}
           </ul>
 
           <a
@@ -138,7 +132,9 @@ export function Contribute() {
             <p className="bg-zinc-200 dark:bg-zinc-800 px-6 py-3 rounded-xl text-primary dark:text-white text-center">
               <button
                 onClick={handleCopy}
-                className={`flex items-center gap-2 cursor-pointer hover:text-yellow-500 transition-colors duration-300  ${copyStatus === "SE COPIO EL ALIAS" ? "text-yellow-500" : ""}`}
+                className={`flex items-center gap-2 cursor-pointer hover:text-yellow-500 transition-colors duration-300  ${
+                  copyStatus === "SE COPIO EL ALIAS" ? "text-yellow-500" : ""
+                }`}
               >
                 <span>{copyStatus}</span>
                 <CopyToClipboard className="size-5" />

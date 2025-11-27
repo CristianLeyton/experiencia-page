@@ -32,6 +32,7 @@ export function Header() {
   return (
     <header className="dark:text-white sticky top-0 z-10 bg-white dark:bg-primary">
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
+        {/* LOGO */}
         <a href="/">
           <img
             src={Logo}
@@ -39,6 +40,7 @@ export function Header() {
             alt="Logo Iglesia Experiencia con Dios"
           />
         </a>
+        {/* NAV */}
         <nav
           className={`absolute md:static 
     border-r-2 md:border-none 
