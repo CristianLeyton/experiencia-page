@@ -12,7 +12,7 @@ function App() {
 
     useEffect(() => {
       const observer = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               if (!entry.target.classList.contains("show")) {
