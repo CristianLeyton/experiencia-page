@@ -75,3 +75,23 @@
     opacity: 1;
   }
 }
+
+@keyframes fade-in-up {
+  from {
+    transform: translateY(10%) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+.card {
+  opacity: 0;
+}
+
+.card.show {
+  animation: fade-in-up 0.6s ease-in-out forwards;
+  animation-delay: 0.1s;
+}

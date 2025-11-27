@@ -90,7 +90,7 @@ export function Contribute() {
       </div>
 
       <section className="grid grid-cols-1 md:grid-cols-2 py-6 gap-6">
-        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
+        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
           <h3 className="text-2xl font-swash">
             Contribuir con tu tiempo y talento
           </h3>
@@ -120,7 +120,7 @@ export function Contribute() {
           </a>
         </article>
 
-        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
+        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
           <h3 className="text-2xl font-swash">Diezmos y ofrendas</h3>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
             Nuestro ministerio se mantiene gracias a sus ofrendas y donaciones.

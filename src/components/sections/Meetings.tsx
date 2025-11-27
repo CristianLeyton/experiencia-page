@@ -43,7 +43,7 @@ export function Meetings() {
   return (
     <section
       id="reuniones"
-      className=" scroll-m-20 py-12 px-4 text-primary dark:text-white bg-secondary dark:bg-zinc-950"
+      className=" scroll-m-20 py-8 px-4 text-primary dark:text-white bg-secondary dark:bg-zinc-950"
     >
       <div className="container mx-auto">
         <div className="text-center flex flex-col gap-4">
@@ -56,7 +56,7 @@ export function Meetings() {
 
         <article className="grid md:grid-cols-2 gap-6 items-center justify-items-center mt-6">
           <div className="flex flex-col gap-4 w-full max-w-lg">
-            <div className="text-center border rounded-xl p-4 group border-primary dark:border-white bg-white dark:bg-primary hover:border-yellow-500 transition-colors duration-300">
+            <div className="text-center border rounded-xl p-4 group border-primary dark:border-white bg-white dark:bg-primary hover:border-yellow-500 transition-colors duration-300 card">
               <p className="text-lg xl:text-xl flex flex-col gap-2">
                 <a
                   href={linkGoogle}
@@ -79,10 +79,10 @@ export function Meetings() {
             <Card title="Reunion general" text="Sábado 19:30hs" iconTime />
             <Card title="Reunion general" text="Domingo 10:30hs" iconTime />
           </div>
-          <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl">
+          <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl card">
             <div
               id="map"
-              className="h-[300px] md:h-full lg:h-[400px] w-full rounded-xl z-0"
+              className="h-[250px] md:h-full lg:h-[400px] w-full rounded-xl z-0"
             ></div>
           </div>
         </article>

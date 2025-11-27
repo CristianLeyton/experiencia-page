@@ -20,7 +20,7 @@ function EventCard({
   iconParty?: boolean;
 }) {
   return (
-    <article className="bg-white dark:bg-primary rounded-xl px-8 py-4 relative hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group w-full md:max-w-sm xl:max-w-lg flex flex-col gap-2 group">
+    <article className="bg-white dark:bg-primary rounded-xl px-8 py-4 relative hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group w-full md:max-w-sm xl:max-w-lg flex flex-col gap-2 group card">
       <h3 className="text-2xl font-swash border-b border-zinc-300 dark:border-zinc-700 pb-2 group-hover:text-yellow-500 transition-colors duration-300 text-center">
         {title}
       </h3>
