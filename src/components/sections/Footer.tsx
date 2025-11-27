@@ -20,7 +20,7 @@ export function Footer() {
   return (
     <footer
       id="contacto"
-      className="px-6 py-4 text-primary dark:text-secondary bg-secondary dark:bg-zinc-950 mx-auto text-sm"
+      className="px-6 py-4 text-primary dark:text-secondary bg-secondary dark:bg-primary mx-auto text-sm"
     >
       <div className="grid md:justify-items-center items-center md:grid-cols-2 gap-7">
         <div className="space-y-0.5">
@@ -62,7 +62,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="flex justify-center gap-5 md:gap-4 flex-nowrap *:bg-zinc-900 *:text-white  *:inline-block *:p-1 *:rounded-lg *:scale-125 *:md:scale-125 *:transition">
+        <div className="flex justify-center gap-5 md:gap-4 flex-nowrap *:bg-zinc-950 *:dark:bg-zinc-800 *:text-white  *:inline-block *:p-1 *:rounded-lg *:scale-125 *:md:scale-125 *:transition">
           <a
             href={contact.instagram}
             target="_blank"

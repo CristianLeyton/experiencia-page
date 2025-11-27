@@ -45,7 +45,7 @@ export function CardConnect({
   iconGroup?: boolean;
 }) {
   return (
-    <article className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-4 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
+    <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl p-4 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
       {iconCoffee && (
         <span className="group-hover:text-yellow-500 transition-colors duration-300">
           <IconCoffee className="size-16" />

@@ -63,7 +63,7 @@ export function Contribute() {
   return (
     <section
       id="contribuir"
-      className="scroll-m-12 py-12 px-4 text-primary dark:text-white"
+      className="scroll-m-20 py-12 px-4 text-primary dark:text-white container mx-auto"
     >
       <div className="text-center flex flex-col gap-4">
         <Title text="Contribuir" />
@@ -79,8 +79,8 @@ export function Contribute() {
         </p>
       </div>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 p-4 gap-4">
-        <article className="bg-zinc-50 dark:bg-zinc-900 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
+      <section className="grid grid-cols-1 md:grid-cols-2 py-6 gap-6">
+        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
           <h3 className="text-2xl font-swash">
             Contribuir con tu tiempo y talento
           </h3>
@@ -126,16 +126,16 @@ export function Contribute() {
           </a>
         </article>
 
-        <article className="bg-zinc-50 dark:bg-zinc-900 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
+        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center ">
           <h3 className="text-2xl font-swash">Diezmos y ofrendas</h3>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
             Nuestro ministerio se mantiene gracias a sus ofrendas y donaciones.
             ¡Ayúdanos a seguir adelante!
           </p>
 
-          <div className="flex flex-col gap-2 border border-zinc-300 dark:border-zinc-700  rounded-2xl p-4 w-full items-center">
+          <div className="flex flex-col gap-2 border border-zinc-300 dark:border-zinc-700 rounded-2xl p-4 w-full items-center">
             <b>Nuestro alias:</b>
-            <p className="bg-zinc-200 dark:bg-primary px-6 py-3 rounded-xl text-primary dark:text-white text-center">
+            <p className="bg-zinc-200 dark:bg-zinc-800 px-6 py-3 rounded-xl text-primary dark:text-white text-center">
               <button
                 onClick={handleCopy}
                 className={`flex items-center gap-2 cursor-pointer hover:text-yellow-500 transition-colors duration-300  ${copyStatus === "SE COPIO EL ALIAS" ? "text-yellow-500" : ""}`}
