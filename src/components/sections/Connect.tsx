@@ -1,5 +1,6 @@
 import { Title } from "../utilities/Title";
 import { CardConnect } from "../utilities/CardConnect";
+import manosjuntas from "../../assets/images/manosjuntas.webp";
 
 export function Connect() {
   return (
@@ -18,6 +19,8 @@ export function Connect() {
               Completa un formulario y nos pondremos en contacto contigo
             </p>
           </p>
+          <img src={manosjuntas} alt="manosjuntas" className="aspect-video object-cover w-full md:w-xl xl:w-2xl rounded-xl shadow mx-auto card"  style={{ objectPosition: "center 35%" }} />
+
         </div>
 
         <section className="pt-8 grid grid-cols-1 md:grid-cols-3 gap-4">

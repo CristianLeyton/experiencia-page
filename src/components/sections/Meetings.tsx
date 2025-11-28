@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import iconPin from "../../assets/images/marcador.png";
 import { Title } from "../utilities/Title";
 import { Card } from "../utilities/Card";
+import reunion from "../../assets/images/reunion.webp";
 
 export function Meetings() {
   const linkGoogle = "https://maps.app.goo.gl/npvWAhiJGbtFLAy57";
@@ -52,6 +53,8 @@ export function Meetings() {
             Un tiempo de alabanza, enseñanza de la Palabra y comunión. Estas
             invitado a cualquiera de nuestras reuniones generales.
           </p>
+
+          <img src={reunion} alt="reuniones" className="aspect-video object-cover w-4xl rounded-xl shadow mx-auto card" />
         </div>
 
         <article className="grid md:grid-cols-2 gap-6 items-center justify-items-center mt-6">
@@ -82,7 +85,7 @@ export function Meetings() {
           <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl card">
             <div
               id="map"
-              className="h-[250px] md:h-full lg:h-[400px] w-full rounded-xl z-0"
+              className="h-[250px] md:h-full lg:h-[360px] w-full rounded-xl z-0"
             ></div>
           </div>
         </article>

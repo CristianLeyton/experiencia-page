@@ -1,6 +1,7 @@
 import { IconChebron } from "../icons/IconChebron";
 import { Title } from "../utilities/Title";
 import { useState } from "react";
+import adoracion from "../../assets/images/adoracion.webp";
 
 function CopyToClipboard(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -156,6 +157,12 @@ export function Contribute() {
           </p>
         </article>
       </section>
+
+      <img
+        src={adoracion}
+        alt="adoracion"
+        className="aspect-square md:aspect-video object-cover w-full lg:w-xl xl:w-2xl rounded-xl shadow mx-auto card"
+      />
     </section>
   );
 }
