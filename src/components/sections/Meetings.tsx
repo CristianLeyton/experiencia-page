@@ -1,15 +1,15 @@
-import { useEffect } from "react";
+/* import { useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import iconPin from "../../assets/images/marcador.png";
+import iconPin from "../../assets/images/marcador.png"; */
 import { Title } from "../utilities/Title";
 import { Card } from "../utilities/Card";
 import reunion from "../../assets/images/reunion.webp";
 
 export function Meetings() {
-  const linkGoogle = "https://maps.app.goo.gl/npvWAhiJGbtFLAy57";
+  const linkGoogle = "https://maps.app.goo.gl/qDgKSWTS7CKc9bgJA";
 
-  useEffect(() => {
+/*   useEffect(() => {
     const coord = {
       X: -24.786853,
       Y: -65.414772,
@@ -39,7 +39,7 @@ export function Meetings() {
     return () => {
       map.remove();
     };
-  }, []);
+  }, []); */
 
   return (
     <section
@@ -83,10 +83,12 @@ export function Meetings() {
             <Card title="Reunion general" text="Domingo 10:30hs" iconTime />
           </div>
           <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl card">
-            <div
+{/*             <div
               id="map"
               className="h-[250px] md:h-full lg:h-[360px] w-full rounded-xl z-0"
-            ></div>
+            ></div> */}
+            <iframe className="h-[250px] md:h-full lg:h-[360px] w-full rounded-xl z-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.2514154130326!2d-65.41742392381015!3d-24.786843107756987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3ba42825995%3A0xca4c99f592055797!2s25%20de%20Mayo%20212%2C%20A4400%20Salta!5e0!3m2!1ses!2sar!4v1764379141072!5m2!1ses!2sar"></iframe>
+
           </div>
         </article>
       </div>
