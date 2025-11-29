@@ -6,7 +6,7 @@ export function Connect() {
   return (
     <section
       id="conectar"
-      className="scroll-m-20 py-12 px-4 text-primary dark:text-white"
+      className="scroll-m-20 py-8 px-4 text-primary dark:text-white"
     >
       <div className="container mx-auto">
         <div className="text-center flex flex-col gap-4">

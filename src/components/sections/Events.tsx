@@ -56,7 +56,7 @@ export function Events() {
   return (
     <section
       id="eventos"
-      className="scroll-m-22 py-8 px-4 text-primary dark:text-white bg-secondary dark:bg-zinc-950"
+      className="scroll-m-20 py-8 px-4 text-primary dark:text-white bg-secondary dark:bg-zinc-950"
     >
       <div className="container mx-auto">
         <div className="text-center flex flex-col gap-4">
