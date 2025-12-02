@@ -7,8 +7,6 @@ export function ServicesPage() {
       behavior: "smooth",
     });
   }, []);
-
-
   
   const WEB_APP_URL =
     "https://script.google.com/macros/s/AKfycbzGBsytXgvKLOzODEwRO8UWi57XN7H6-IeIJw0wCExVt7rfzAdtk2xGVNFOsOtO5Dy7Tw/exec";
