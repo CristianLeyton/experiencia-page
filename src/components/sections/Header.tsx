@@ -2,6 +2,7 @@ import Logo from "../../assets/images/logo-120x100.png";
 import { SwitchTheme } from "../utilities/SwitchTheme.tsx";
 import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
 import { useState } from "react";
+import { HashLink as NavLink } from "react-router-hash-link";
 
 type ItemProps = {
   href: string;
@@ -11,14 +12,14 @@ type ItemProps = {
 
 function Item({ href, children, onOpenMenu }: ItemProps) {
   return (
-    <a
-      href={href}
+    <NavLink
+      to={href}
       onClick={onOpenMenu}
       className="relative py-1 hover:text-yellow-500 transition-all duration-300 after:border-b-2 after:border-yellow-500 after:bottom-0 after:left-0 after:absolute after:w-0 hover:after:w-full after:transition-all after:duration-300 active:text-yellow-500
     "
     >
       {children}
-    </a>
+    </NavLink>
   );
 }
 
@@ -60,19 +61,19 @@ export function Header() {
     }
   `}
         >
-          <Item href="#inicio" onOpenMenu={handleoOpenMenu}>
+          <Item href="/#inicio" onOpenMenu={handleoOpenMenu}>
             Bienvenida
           </Item>
-          <Item href="#reuniones" onOpenMenu={handleoOpenMenu}>
+          <Item href="/#reuniones" onOpenMenu={handleoOpenMenu}>
             Reuniones
           </Item>
-          <Item href="#conectar" onOpenMenu={handleoOpenMenu}>
+          <Item href="/#conectar" onOpenMenu={handleoOpenMenu}>
             Conectar
           </Item>
-          <Item href="#eventos" onOpenMenu={handleoOpenMenu}>
+          <Item href="/#eventos" onOpenMenu={handleoOpenMenu}>
             Eventos
           </Item>
-          <Item href="#contribuir" onOpenMenu={handleoOpenMenu}>
+          <Item href="/#contribuir" onOpenMenu={handleoOpenMenu}>
             Contribuir
           </Item>
         </nav>

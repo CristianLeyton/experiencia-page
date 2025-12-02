@@ -1,57 +1,20 @@
 import { Header } from "./components/sections/Header.tsx";
 import "./App.css";
-import { Hero } from "./components/sections/Hero.tsx";
-import { Meetings } from "./components/sections/Meetings.tsx";
-import { Connect } from "./components/sections/Connect.tsx";
-import { Events } from "./components/sections/Events.tsx";
-import { Contribute } from "./components/sections/Contribute.tsx";
+import { HomePage } from "./components/pages/HomePage.tsx";
+import { NotFoundPage } from "./components/pages/NotFoundPage.tsx";
 import { Footer } from "./components/sections/Footer.tsx";
-import { useEffect } from "react";
+import {Routes, Route} from "react-router";
+import { ServicesPage } from "./components/pages/ServicesPage.tsx";
 
 function App() {
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              if (!entry.target.classList.contains("show")) {
-                entry.target.classList.add("show");
-              }
-            } else {
-              const boundingClientRect = entry.boundingClientRect;
-              if (boundingClientRect.bottom > window.innerHeight) {
-                //entry.target.classList.remove("show");
-              }
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-  
-      const cards = document.querySelectorAll(".card");
-  
-      // Empezar a observar cada elemento
-      cards.forEach((card) => {
-        observer.observe(card);
-      });
-  
-      return () => {
-        // Parar de observar cada elemento
-        cards.forEach((card) => {
-          observer.unobserve(card);
-        });
-      };
-    }, []);
-
   return (
     <>
       <Header />
-      <Hero />
-      <Meetings />
-      <Connect />
-      <Events />
-      <Contribute />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/servicios" element={<ServicesPage />} />
+      </Routes>
       <Footer />
     </>
   );

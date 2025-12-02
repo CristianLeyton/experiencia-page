@@ -11,14 +11,14 @@ export function Connect() {
       <div className="container mx-auto">
         <div className="text-center flex flex-col gap-4">
           <Title text="Conectar con nosotros" />
-          <p className="xl:text-lg">
+          <div className="xl:text-lg">
             Conectarse con nuestra comunidad y conocer a otros miembros de
             Iglesia Experiencia con Dios.
             <br />
             <p className="text-zinc-500 dark:text-zinc-400 text-sm pt-1">
               Completa un formulario y nos pondremos en contacto contigo
             </p>
-          </p>
+          </div>
           <img src={manosjuntas} alt="manosjuntas" className="aspect-video object-cover w-full md:w-xl xl:w-2xl rounded-xl shadow mx-auto card"  style={{ objectPosition: "center 35%" }} />
 
         </div>

@@ -2,6 +2,7 @@ import { IconChebron } from "../icons/IconChebron";
 import { Title } from "../utilities/Title";
 import { useState } from "react";
 import adoracion from "../../assets/images/adoracion.webp";
+import { Link } from "react-router";
 
 function CopyToClipboard(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -78,7 +79,7 @@ export function Contribute() {
     >
       <div className="text-center flex flex-col gap-4">
         <Title text="Contribuir" />
-        <p className="xl:text-lg">
+        <div className="xl:text-lg">
           Hay dos formas principales de ser parte activa de la misión: con tu
           tiempo y talento sirviendo en un área, o a través de tus finanzas.{" "}
           <br /> <b>¡Elige cómo quieres hacer la diferencia!</b>
@@ -87,7 +88,7 @@ export function Contribute() {
             Contribuir no es obligatorio, no te sientas presionado a hacerlo. Lo
             más importante es tu relación con Dios.
           </p>
-        </p>
+        </div>
       </div>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 py-6 gap-6">
@@ -112,13 +113,12 @@ export function Contribute() {
             ))}
           </ul>
 
-          <a
-            href="#"
-            target="_blank"
+          <Link
+            to="/servicios"
             className="mt-1 bg-primary rounded-full px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm"
           >
             Quiero ser parte
-          </a>
+          </Link>
         </article>
 
         <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">

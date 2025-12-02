@@ -60,7 +60,7 @@ export function Meetings() {
         <article className="grid md:grid-cols-2 gap-6 items-center justify-items-center mt-6">
           <div className="flex flex-col gap-4 w-full max-w-lg">
             <div className="text-center border rounded-xl p-4 group border-primary dark:border-white bg-white dark:bg-primary hover:border-yellow-500 transition-colors duration-300 card">
-              <p className="text-lg xl:text-xl flex flex-col gap-2">
+              <div className="text-lg xl:text-xl flex flex-col gap-2">
                 <a
                   href={linkGoogle}
                   target="_blank"
@@ -77,7 +77,7 @@ export function Meetings() {
                 <p className="font-semibold text-xl  xl:text-2xl group-hover:scale-105 group-hover:text-yellow-500 transition-all duration-300">
                   ¡Te esperamos!
                 </p>
-              </p>
+              </div>
             </div>
             <Card title="Reunion general" text="Sábado 19:30hs" iconTime />
             <Card title="Reunion general" text="Domingo 10:30hs" iconTime />
