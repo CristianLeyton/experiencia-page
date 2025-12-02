@@ -80,7 +80,7 @@ export function Events() {
             title="Especial Navidad"
             text="Estas invitado a nuestro evento de fin de año, tendremos un momento especial para adorar a nuestro Dios y compartir en comunidad. ¡No faltes!"
             location="Usina cultural - Teatro 'Macacha Güemes'"
-            date="Sábado 20 de Diciembre"
+            date="Domingo 21 de Diciembre"
             hour="19:30hs"
             iconParty
           />
