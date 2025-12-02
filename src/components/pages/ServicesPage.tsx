@@ -9,30 +9,28 @@ export function ServicesPage() {
   }, []);
 
   const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbzA1PpG1WCdm07o7nnJ8378RQ7qAwLMZDv6MMb96D2DUsim1zpXPlExU9EOG06fJOGXyg/exec";
+    "https://script.google.com/macros/s/AKfycbydT8Ap4joqkUnwBm4Tsw8iyjO6BkhuVSuuYk0uR6pzOYaQqaTSzfOrk8xupjVGIH9DOQ/exec";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+  const formData = new FormData(e.currentTarget);
 
-    const res = await fetch(WEB_APP_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+  const res = await fetch(WEB_APP_URL, {
+    method: "POST",
+    body: formData,   // ← no JSON, no headers!
+  });
 
-    const json = await res.json();
-    console.log(json);
+  const json = await res.json();
+  console.log(json);
 
-    if (json.status === "success") {
-      alert("Formulario enviado con éxito!");
-      e.currentTarget.reset();
-    } else {
-      alert("Hubo un error al enviar el formulario");
-    }
+  if (json.status === "success") {
+    alert("Formulario enviado con éxito!");
+    e.currentTarget.reset();
+  } else {
+    alert("Hubo un error al enviar el formulario");
   }
+}
 
   return (
     <div className="flex flex-col items-center justify-center min-h-dvh dark:text-secondary">
