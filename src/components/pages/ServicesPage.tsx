@@ -12,7 +12,7 @@ export function ServicesPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const [enviar, setEnviar] = useState('Enviado');
+  const [enviar, setEnviar] = useState('Enviar');
 
   const formularioRef = useRef<HTMLFormElement>(null);
 
@@ -108,8 +108,8 @@ export function ServicesPage() {
       </form>
 
       {enviar == 'Enviado' && (
-        <div className="flex flex-col gap-2 border mt-4 max-w-xl border-zinc-300 dark:border-zinc-700 rounded-2xl p-4 w-full items-center bg-zinc-50 dark:bg-zinc-950 card show">
-          <b>¡Tu mensake ha sido enviado!</b>
+        <div className="flex flex-col gap-2 border mt-4 max-w-xl text-center border-zinc-300 dark:border-zinc-700 rounded-2xl p-4 w-full items-center bg-zinc-50 dark:bg-zinc-950 card show">
+          <b>¡Tu mensaje ha sido enviado!</b>
           <p className="text-zinc-500 dark:text-zinc-400">Nos pondremos en contacto contigo lo antes posible. </p>
           <p className="bg-zinc-200 dark:bg-zinc-800 px-4 py-1.5 rounded-lg text-primary dark:text-white text-center">
             <button
