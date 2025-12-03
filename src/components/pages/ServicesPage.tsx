@@ -76,11 +76,11 @@ export function ServicesPage() {
         </p>
 
         <div className="grid grid-cols-12 gap-3 max-w-4xl mx-auto *:hover:scale-125 *:transition-transform *:duration-300 *:hover:shadow-xl *:hover:z-20 *:cursor-zoom-in">
-          <img src={image3} alt="image1" className="rounded-xl col-span-6 aspect-video object-cover" />
-          <img src={image5} alt="image2" className="rounded-xl col-span-6 aspect-video object-cover" />
-          <img src={image2} alt="image3" className="rounded-xl col-span-4 aspect-video object-cover" />
-          <img src={image1} alt="image4" className="rounded-xl col-span-4 aspect-video object-cover" />
-          <img src={image4} alt="image5" className="rounded-xl col-span-4 aspect-video object-cover" />
+          <img src={image3} alt="image1" className="rounded-xl col-span-6 aspect-video object-cover card show" />
+          <img src={image5} alt="image2" className="rounded-xl col-span-6 aspect-video object-cover card show" />
+          <img src={image2} alt="image3" className="rounded-xl col-span-4 aspect-video object-cover card show" />
+          <img src={image1} alt="image4" className="rounded-xl col-span-4 aspect-video object-cover card show" />
+          <img src={image4} alt="image5" className="rounded-xl col-span-4 aspect-video object-cover card show" />
         </div>
 
         <b className="text-2xl pt-4">¡Elige cómo quieres hacer la diferencia!</b>
@@ -90,7 +90,7 @@ export function ServicesPage() {
         </p>
       </div>
 
-      <form ref={formularioRef} onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6 w-full sm:max-w-lg text-primary dark:text-secondary bg-zinc-50 dark:bg-zinc-950 rounded-xl p-8 text-center [&>input]:p-2 [&>input]:border [&>input]:border-zinc-400 [&>input]:rounded">
+      <form ref={formularioRef} onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6 w-full sm:max-w-lg text-primary dark:text-secondary bg-zinc-50 dark:bg-zinc-950 rounded-xl p-8 text-center [&>input]:p-2 [&>input]:border [&>input]:border-zinc-400 [&>input]:rounded card show">
         <input name="nombre" type="text" placeholder="Nombre*" required disabled={enviar === 'Enviado'}/>
         <input name="apellido" type="text" placeholder="Apellido*" required disabled={enviar === 'Enviado'}/>
         <input name="telefono" type="tel" placeholder="Telefono*" required disabled={enviar === 'Enviado'}/>
