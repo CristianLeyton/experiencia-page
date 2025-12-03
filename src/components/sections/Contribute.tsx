@@ -4,6 +4,15 @@ import { useState } from "react";
 import adoracion from "../../assets/images/adoracion.webp";
 import { Link } from "react-router";
 
+export const areas = [
+    "Niños y Adolescentes",
+    "Alabanza y Música",
+    "Equipo de Bienvenida",
+    "Equipo de Refrigerio",
+    "Redes Sociales y Diseño",
+    "Multimedia y Sonido",
+  ];
+
 function CopyToClipboard(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -29,15 +38,6 @@ function CopyToClipboard(props: React.SVGProps<SVGSVGElement>) {
 export function Contribute() {
   const ALIAS_TEXT = "CUENTA.EXPERIENCIA";
   const [copyStatus, setCopyStatus] = useState(ALIAS_TEXT); // Usamos el alias como estado inicial
-
-  const areas = [
-    "Niños y Adolescentes",
-    "Alabanza y Música",
-    "Equipo de Bienvenida",
-    "Equipo de Refrigerio",
-    "Redes Sociales y Diseño",
-    "Multimedia y Sonido",
-  ];
 
   const handleCopy = () => {
     // 1. Crear un elemento de entrada temporal
