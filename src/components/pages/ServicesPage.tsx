@@ -76,11 +76,11 @@ export function ServicesPage() {
         </p>
 
         <div className="grid grid-cols-12 gap-3 max-w-4xl mx-auto *:hover:scale-125 *:transition-transform *:duration-300 *:hover:shadow-xl *:hover:z-20 *:cursor-zoom-in">
-          <img src={image3} alt="image1" className="rounded-xl col-span-6 aspect-auto object-cover" />
-          <img src={image5} alt="image2" className="rounded-xl col-span-6 aspect-auto object-cover" />
-          <img src={image2} alt="image3" className="rounded-xl col-span-4 aspect-auto object-cover" />
-          <img src={image1} alt="image4" className="rounded-xl col-span-4 aspect-auto object-cover" />
-          <img src={image4} alt="image5" className="rounded-xl col-span-4 aspect-auto object-cover" />
+          <img src={image3} alt="image1" className="rounded-xl col-span-6 aspect-video object-cover" />
+          <img src={image5} alt="image2" className="rounded-xl col-span-6 aspect-video object-cover" />
+          <img src={image2} alt="image3" className="rounded-xl col-span-4 aspect-video object-cover" />
+          <img src={image1} alt="image4" className="rounded-xl col-span-4 aspect-video object-cover" />
+          <img src={image4} alt="image5" className="rounded-xl col-span-4 aspect-video object-cover" />
         </div>
 
         <b className="text-2xl pt-4">¡Elige cómo quieres hacer la diferencia!</b>
