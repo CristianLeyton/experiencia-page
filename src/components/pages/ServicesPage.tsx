@@ -67,15 +67,15 @@ export function ServicesPage() {
 
   return (
     <div className="flex flex-col items-center justify-center container mx-auto px-4 py-6 dark:text-secondary">
-      <Title text="Únete a algun area de servicio" />
+      <Title text="Únete a un area de servicio" />
       <div className="xl:text-lg flex flex-col gap-4 text-center text-balance max-w-6xl">
         <p className="pt-2">
-          Queremos ser pies y manos de Jesús, cada uno tiene talentos que Dios
+          Queremos ser manos y pies de Jesús, cada uno tiene talentos que Dios
           nos otorgó es momento de hacerlos crecer, por eso te invitamos a
-          unirte a alguno de los servicios que ofrecemos.
+          unirte a alguna de nuestras areas de servicio.
         </p>
 
-        <div className="grid grid-cols-12 gap-3 max-w-4xl mx-auto *:hover:scale-125 *:transition-transform *:duration-300 *:hover:shadow-xl *:hover:z-20 *:cursor-zoom-in">
+        <div className="grid grid-cols-12 gap-2 max-w-4xl mx-auto *:hover:scale-125 *:transition-transform *:duration-300 *:hover:shadow-xl *:hover:z-20 *:cursor-zoom-in">
           <img src={image3} alt="image1" className="rounded-xl col-span-6 aspect-video object-cover card show" />
           <img src={image5} alt="image2" className="rounded-xl col-span-6 aspect-video object-cover card show" />
           <img src={image2} alt="image3" className="rounded-xl col-span-4 aspect-video object-cover card show" />
@@ -98,7 +98,7 @@ export function ServicesPage() {
         <input name="mensaje" type="text" placeholder="Mensaje" disabled={enviar === 'Enviado'}/>
         <select name="area" required defaultValue={""} className="rounded border border-zinc-400 py-2 px-1 text-primary dark:text-secondary [&>option]:text-primary" disabled={enviar === 'Enviado'}>
           <option value="" disabled >
-            Selecciona una opción
+            Selecciona un area
           </option>
           {areas.map((area, index) => (
             <option key={index}>{area}</option>

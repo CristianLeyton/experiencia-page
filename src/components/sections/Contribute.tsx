@@ -11,6 +11,7 @@ export const areas = [
     "Equipo de Refrigerio",
     "Redes Sociales y Diseño",
     "Multimedia y Sonido",
+    "Area de ayuda social"
   ];
 
 function CopyToClipboard(props: React.SVGProps<SVGSVGElement>) {
