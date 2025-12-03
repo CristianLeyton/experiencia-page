@@ -12,7 +12,7 @@ export function ServicesPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const [enviar, setEnviar] = useState('Enviar');
+  const [enviar, setEnviar] = useState("Enviar");
 
   const formularioRef = useRef<HTMLFormElement>(null);
 
@@ -48,80 +48,163 @@ export function ServicesPage() {
       formData.append(key, inputValue[key]);
     });
     try {
-        setEnviar('Enviando...');
+      setEnviar("Enviando...");
       const res = await fetch(baseURL, { method: "POST", body: formData });
       if (res.ok) {
         console.log("Request was successful:", res);
         formularioRef.current?.reset();
-        setEnviar('Enviado');
+        setEnviar("Enviado");
       } else {
         console.log("Request Failed:", res);
-        setEnviar('Error, no se pudo enviar el formulario');
+        setEnviar("Error, no se pudo enviar el formulario");
       }
     } catch (e) {
       console.error("Error during fetch:", e);
     }
   };
 
-
-
   return (
-    <div className="flex flex-col items-center justify-center container mx-auto px-4 py-6 dark:text-secondary">
-      <Title text="Únete a un area de servicio" />
-      <div className="xl:text-lg flex flex-col gap-4 text-center text-balance max-w-6xl">
-        <p className="pt-2">
-          Queremos ser manos y pies de Jesús, cada uno tiene talentos que Dios
-          nos otorgó es momento de hacerlos crecer, por eso te invitamos a
-          unirte a alguna de nuestras areas de servicio.
-        </p>
+    <>
+      <title>Iglesia Experiencia con Dios - Únete a un area de servicio</title>
+      <meta
+        name="description"
+        content="Únete a un area de servicio! - 
+Queremos ser manos y pies de Jesús, cada uno tiene talentos que Dios nos otorgó es momento de hacerlos crecer, por eso te invitamos a unirte a alguna de nuestras areas de servicio."
+      />
 
-        <div className="grid grid-cols-12 gap-2 max-w-4xl mx-auto *:hover:scale-125 *:transition-transform *:duration-300 *:hover:shadow-xl *:hover:z-20 *:cursor-zoom-in">
-          <img src={image3} alt="image1" className="rounded-xl col-span-6 aspect-video object-cover card show" />
-          <img src={image5} alt="image2" className="rounded-xl col-span-6 aspect-video object-cover card show" />
-          <img src={image2} alt="image3" className="rounded-xl col-span-4 aspect-video object-cover card show" />
-          <img src={image1} alt="image4" className="rounded-xl col-span-4 aspect-video object-cover card show" />
-          <img src={image4} alt="image5" className="rounded-xl col-span-4 aspect-video object-cover card show" />
-        </div>
+      <meta property="og:title" content="Únete a un area de servicio" />
+  <meta 
+    property="og:description" 
+    content="Únete a un area de servicio! - 
+Queremos ser manos y pies de Jesús, cada uno tiene talentos que Dios nos otorgó es momento de hacerlos crecer, por eso te invitamos a unirte a alguna de nuestras areas de servicio."
+  />
 
-        <b className="text-2xl pt-4">¡Elige cómo quieres hacer la diferencia!</b>
-        <p className="text-zinc-500 dark:text-zinc-400">
-          Completa el formulario para que te contactemos y te ayudemos a
-          encontrar el lugar perfecto para ti.
-        </p>
-      </div>
+      <div className="flex flex-col items-center justify-center container mx-auto px-4 py-6 dark:text-secondary">
+        <Title text="Únete a un area de servicio" />
+        <div className="xl:text-lg flex flex-col gap-4 text-center text-balance max-w-6xl">
+          <p className="pt-2">
+            Queremos ser manos y pies de Jesús, cada uno tiene talentos que Dios
+            nos otorgó es momento de hacerlos crecer, por eso te invitamos a
+            unirte a alguna de nuestras areas de servicio.
+          </p>
 
-      <form ref={formularioRef} onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6 w-full sm:max-w-lg text-primary dark:text-secondary bg-zinc-50 dark:bg-zinc-950 rounded-xl p-8 text-center [&>input]:p-2 [&>input]:border [&>input]:border-zinc-400 [&>input]:rounded card show">
-        <input name="nombre" type="text" placeholder="Nombre*" required disabled={enviar === 'Enviado'}/>
-        <input name="apellido" type="text" placeholder="Apellido*" required disabled={enviar === 'Enviado'}/>
-        <input name="telefono" type="tel" placeholder="Telefono*" required disabled={enviar === 'Enviado'}/>
-        <input name="email" type="email" placeholder="Correo*" required disabled={enviar === 'Enviado'}/>
-        <input name="mensaje" type="text" placeholder="Mensaje" disabled={enviar === 'Enviado'}/>
-        <select name="area" required defaultValue={""} className="rounded border border-zinc-400 py-2 px-1 text-primary dark:text-secondary [&>option]:text-primary" disabled={enviar === 'Enviado'}>
-          <option value="" disabled >
-            Selecciona un area
-          </option>
-          {areas.map((area, index) => (
-            <option key={index}>{area}</option>
-          ))}
-        </select>
-        <button type="submit" className="cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-primary rounded px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm" disabled={enviar != 'Enviar'}>{enviar}</button>
-      </form>
+          <div className="grid grid-cols-12 gap-2 max-w-4xl mx-auto *:hover:scale-125 *:transition-transform *:duration-300 *:hover:shadow-xl *:hover:z-20 *:cursor-zoom-in">
+            <img
+              src={image3}
+              alt="image1"
+              className="rounded-xl col-span-6 aspect-video object-cover card show"
+            />
+            <img
+              src={image5}
+              alt="image2"
+              className="rounded-xl col-span-6 aspect-video object-cover card show"
+            />
+            <img
+              src={image2}
+              alt="image3"
+              className="rounded-xl col-span-4 aspect-video object-cover card show"
+            />
+            <img
+              src={image1}
+              alt="image4"
+              className="rounded-xl col-span-4 aspect-video object-cover card show"
+            />
+            <img
+              src={image4}
+              alt="image5"
+              className="rounded-xl col-span-4 aspect-video object-cover card show"
+            />
+          </div>
 
-      {enviar == 'Enviado' && (
-        <div className="flex flex-col gap-2 border mt-4 max-w-xl text-center border-zinc-300 dark:border-zinc-700 rounded-2xl p-4 w-full items-center bg-zinc-50 dark:bg-zinc-950 card show">
-          <b>¡Tu mensaje ha sido enviado!</b>
-          <p className="text-zinc-500 dark:text-zinc-400">Nos pondremos en contacto contigo lo antes posible. </p>
-          <p className="bg-zinc-200 dark:bg-zinc-800 px-4 py-1.5 rounded-lg text-primary dark:text-white text-center">
-            <button
-              onClick={() => setEnviar('Enviar')}
-              className={`flex text-sm items-center gap-2 cursor-pointer hover:text-yellow-500 transition-colors duration-300
-              }`}
-            >
-              <span>Enviar otro</span>
-            </button>
+          <b className="text-2xl pt-4">
+            ¡Elige cómo quieres hacer la diferencia!
+          </b>
+          <p className="text-zinc-500 dark:text-zinc-400">
+            Completa el formulario para que te contactemos y te ayudemos a
+            encontrar el lugar perfecto para ti.
           </p>
         </div>
-      )}
-    </div>
+
+        <form
+          ref={formularioRef}
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-3 mt-6 w-full sm:max-w-lg text-primary dark:text-secondary bg-zinc-50 dark:bg-zinc-950 rounded-xl p-8 text-center [&>input]:p-2 [&>input]:border [&>input]:border-zinc-400 [&>input]:rounded card show"
+        >
+          <input
+            name="nombre"
+            type="text"
+            placeholder="Nombre*"
+            required
+            disabled={enviar === "Enviado"}
+          />
+          <input
+            name="apellido"
+            type="text"
+            placeholder="Apellido*"
+            required
+            disabled={enviar === "Enviado"}
+          />
+          <input
+            name="telefono"
+            type="tel"
+            placeholder="Telefono*"
+            required
+            disabled={enviar === "Enviado"}
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Correo*"
+            required
+            disabled={enviar === "Enviado"}
+          />
+          <input
+            name="mensaje"
+            type="text"
+            placeholder="Mensaje"
+            disabled={enviar === "Enviado"}
+          />
+          <select
+            name="area"
+            required
+            defaultValue={""}
+            className="rounded border border-zinc-400 py-2 px-1 text-primary dark:text-secondary [&>option]:text-primary"
+            disabled={enviar === "Enviado"}
+          >
+            <option value="" disabled>
+              Selecciona un area
+            </option>
+            {areas.map((area, index) => (
+              <option key={index}>{area}</option>
+            ))}
+          </select>
+          <button
+            type="submit"
+            className="cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-primary rounded px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm"
+            disabled={enviar != "Enviar"}
+          >
+            {enviar}
+          </button>
+        </form>
+
+        {enviar == "Enviado" && (
+          <div className="flex flex-col gap-2 border mt-4 max-w-xl text-center border-zinc-300 dark:border-zinc-700 rounded-2xl p-4 w-full items-center bg-zinc-50 dark:bg-zinc-950 card show">
+            <b>¡Tu mensaje ha sido enviado!</b>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              Nos pondremos en contacto contigo lo antes posible.{" "}
+            </p>
+            <p className="bg-zinc-200 dark:bg-zinc-800 px-4 py-1.5 rounded-lg text-primary dark:text-white text-center">
+              <button
+                onClick={() => setEnviar("Enviar")}
+                className={`flex text-sm items-center gap-2 cursor-pointer hover:text-yellow-500 transition-colors duration-300
+              }`}
+              >
+                <span>Enviar otro</span>
+              </button>
+            </p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
