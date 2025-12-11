@@ -42,6 +42,17 @@ export function HomePage() {
 
   return (
     <>
+      <title>Iglesia Experiencia con Dios</title>
+      <meta
+        name="description"
+        content="Somos una iglesia joven e inclusiva que ama a Dios, a las personas y a nuestra ciudad. Queremos ser manos y pies de Jesús, creando un lugar donde cualquiera pueda sentirse en casa, encontrar vida, propósito y esperanza. Vení tal como sos."
+      />
+      <meta property="og:title" content="Iglesia Experiencia con Dios" />
+      <meta
+        property="og:description"
+        content="Somos una iglesia joven e inclusiva que ama a Dios, a las personas y a nuestra ciudad. Queremos ser manos y pies de Jesús, creando un lugar donde cualquiera pueda sentirse en casa, encontrar vida, propósito y esperanza. Vení tal como sos."
+      />
+
       <Hero />
       <Meetings />
       <Connect />

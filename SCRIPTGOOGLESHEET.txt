@@ -1,0 +1,87 @@
+El siguiente codigo va en el script.gs de la hoja de voluntarios.
+
+En la pestaña activadores agregamos un nuevo activador de script.
+
+Nombre: Nuevo Voluntario
+
+Seleccionar qué función ejecutar: doPost
+Qué debe ejecutarse durante el despliegue: Principal
+Selecciona la fuente del evento: De una hoja de calculo
+Selecciona el tipo de evento: Al abrirse
+Ajustes de notificación de errores: Notificarme cada dia
+
+//Todo los atributos que envies en tu objeto json se van a guardar en la hoja de voluntarios en la columna correspondiente, asegurate que las columnas tengan el mismo nombre que el atributo que envies.
+
+const sheetName = 'Voluntarios';
+const scriptProp = PropertiesService.getScriptProperties();
+
+function doPost (e) {
+  const lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'));
+    const sheet = doc.getSheetByName(sheetName);
+
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    const nextRow = sheet.getLastRow() + 1;
+
+    // 1. PREPARAR Y OBTENER LOS DATOS
+    // Si el 'Email' existe en la solicitud, lo extraemos aquí para usarlo en el email.
+    const nuevoEmailVoluntario = e.parameter['Email'] || 'Email No Proporcionado';
+    const nuevoNombreVoluntario = e.parameter['Nombre'] || 'Nombre No Proporcionado';
+    const nuevoApellidoVoluntario = e.parameter['Apellido'] || 'Apellido No Proporcionado';
+    const nuevoTelefonoVoluntario = e.parameter['Telefono'] || 'Telefono No Proporcionado';
+    const nuevoAreaVoluntario = e.parameter['Area'] || 'Area No Proporcionado';
+    const nuevoMensajeVoluntario = e.parameter['Mensaje'] || 'Mensaje No Proporcionado';
+    
+    const newRow = headers.map(function(header) {
+      return e.parameter[header] || ''; 
+    });
+
+    // 2. REGISTRAR EN GOOGLE SHEETS
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    // 3. 📧 ENVIAR CORREO DE NOTIFICACIÓN (NUEVA FUNCIÓN)
+    const destinatarioNotificacion = "cristiandleyton2606@gmail.com";
+    const asuntoNotificacion = "¡Nuevo Voluntario Registrado!";
+    const cuerpoNotificacion = `
+      Hola Cristian,
+      
+      Se ha registrado un nuevo voluntario a las ${new Date().toLocaleTimeString()}
+      
+      Detalles del registro:
+      - Nombre: ${nuevoNombreVoluntario + " " + nuevoApellidoVoluntario}
+      - Area: ${nuevoAreaVoluntario}
+      - Email: ${nuevoEmailVoluntario}
+      - Telefono: ${nuevoTelefonoVoluntario}
+      - Mensaje : ${nuevoMensajeVoluntario}
+      - Fila en la Hoja: ${nextRow}
+      
+      Revisa la hoja 'Voluntarios'.
+
+      https://docs.google.com/spreadsheets/d/1kETdPOSxBJ4TRR0DN3edYVIiLLGhQj_VkVm-Dk7OrLQ/edit?gid=0#gid=0
+    `;
+    
+    // Usamos MailApp para el envío simple
+    MailApp.sendEmail(destinatarioNotificacion, asuntoNotificacion, cuerpoNotificacion);
+    
+    // Opcional: Registrar la acción en los logs (Ctrl+Enter en Apps Script)
+    Logger.log("Notificación de nuevo voluntario enviada a: " + destinatarioNotificacion);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  catch (e) {
+    // Si hay un error, se envía este error en la respuesta
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  finally {
+    lock.releaseLock();
+  }
+}
