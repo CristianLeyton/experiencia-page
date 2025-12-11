@@ -1,4 +1,4 @@
-
+** Experiencia con Dios | Landing Page **
 
 Es una landing page hecha con React, Tailwind y Javascript. No tenian mucho presupuesto, pero querian poder enviar formularios, y se me ocurrio usar appscript, google sheets y google forms para hacerlo, y así abaratar costos, ya que no necesita de un backend como tal. Sin embargo puedo enviar formularios cuya respuesta se guarda en una google sheet, y se notifica por mail cuando se reciba un formulario.
 
