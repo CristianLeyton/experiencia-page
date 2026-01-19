@@ -1,7 +1,7 @@
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
-/* import { IconWhatsApp } from "../icons/IconWhatsApp"; */
+ import { IconWhatsApp } from "../icons/IconWhatsApp"; 
 import { IconEmail } from "../icons/IconEmail";
 /* import { IconPhone } from "../icons/IconPhone"; */
 
@@ -12,7 +12,7 @@ const contact = {
   /*   phone: "+54 387 463-7703", */
   facebook: "https://web.facebook.com/iglesiaexperienciacondios",
   instagram: "https://www.instagram.com/experienciacondios/",
-  /*   whatsapp: "https://web.whatsapp.com/send?phone=543874637703", */
+  whatsapp: "https://chat.whatsapp.com/DLrz7te2CmV0YhFa9DzR5C?mode=wwt", 
   ubicacion: "https://maps.app.goo.gl/npvWAhiJGbtFLAy57",
 };
 
@@ -78,14 +78,14 @@ export function Footer() {
           >
             <IconFacebook className="" />
           </a>
-          {/*           <a
+            <a
             href={contact.whatsapp}
             target="_blank"
             className="hover:text-yellow-500"
-            title="Enviar WhatsApp"
+            title="Grupo de WhatsApp"
           >
             <IconWhatsApp className="" />
-          </a> */}
+          </a> 
           <a
             href={`mailto:${contact.email}`}
             target="_blank"
