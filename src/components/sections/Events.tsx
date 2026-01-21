@@ -72,18 +72,18 @@ export function Events() {
             title="Santa cena"
             text="Participa de la santa cena con nuestra iglesia. Recordemos juntos la muerte y resurrección de nuestro Señor."
             location="Hotel Brizo, Salón Quebrada"
-            date="Sábado 07 y Domingo 08 de Diciembre"
-            hour="19:30hs (Sábado) y 10:30hs (Domingo)"
+            date="Domingo 01 de Febrero"
+            hour="10:30hs"
           />
 
-          <EventCard
+{/*           <EventCard
             title="Especial Navidad"
             text="Estas invitado a nuestro evento de fin de año, tendremos un momento especial para adorar a nuestro Dios y compartir en comunidad. ¡No faltes!"
             location="Usina cultural - Teatro 'Macacha Güemes'"
             date="Domingo 21 de Diciembre"
             hour="19:30hs"
             iconParty
-          />
+          /> */}
         </section>
       </div>
     </section>

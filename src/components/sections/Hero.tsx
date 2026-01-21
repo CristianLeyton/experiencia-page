@@ -25,7 +25,7 @@ export function Hero() {
       {/* Bienvenida */}
       <div>
         <h3 className="text-5xl md:text-6xl 2xl:text-7xl font-swash">
-          Bienvenidos a Casa
+          Bienvenido a Casa
         </h3>
       </div>
       {/* Botón de acción */}

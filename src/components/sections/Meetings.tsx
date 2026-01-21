@@ -66,20 +66,19 @@ export function Meetings() {
                   target="_blank"
                   className="hover:text-yellow-500 transition-colors duration-300 active:text-yellow-500"
                 >
-                  <span className="font-semibold">Direccion:</span> 25 de Mayo
-                  212, Salta - Salta
+                  <span className="font-semibold">Direccion:</span> Belgrano y 25 de Mayo, Salta
                 </a>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   Se ingresa al salón Quebrada en el primer piso del hotel
-                  Brizo, por la entrada de la esquina entre 25 de mayo y Av.
-                  Belgrano
+                  Brizo, por la entrada de la esquina entre Av.
+                  Belgrano y 25 de Mayo.
                 </p>
                 <p className="font-semibold text-xl  xl:text-2xl group-hover:scale-105 group-hover:text-yellow-500 transition-all duration-300">
                   ¡Te esperamos!
                 </p>
               </div>
             </div>
-            <Card title="Reunion general" text="Sábado 19:30hs" iconTime />
+            {/* <Card title="Reunion general" text="Sábado 19:30hs" iconTime /> */}
             <Card title="Reunion general" text="Domingo 10:30hs" iconTime />
           </div>
           <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl card">
