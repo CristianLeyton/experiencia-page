@@ -1,7 +1,7 @@
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
- import { IconWhatsApp } from "../icons/IconWhatsApp"; 
+/*  import { IconWhatsApp } from "../icons/IconWhatsApp"; */ 
 import { IconEmail } from "../icons/IconEmail";
 /* import { IconPhone } from "../icons/IconPhone"; */
 
