@@ -36,7 +36,7 @@ export function Header() {
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
         {/* LOGO */}
         <section className="flex gap-2 items-center justify-start w-full">
-        <div className="flex gap-2 items-center shrink-0">
+        <div className="flex gap-0 items-center shrink-0">
           <a href="/">
             <img
               src={Logo}
