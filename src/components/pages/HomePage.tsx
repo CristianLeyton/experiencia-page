@@ -3,6 +3,7 @@ import { Meetings } from "../sections/Meetings.tsx";
 import { Connect } from "../sections/Connect.tsx";
 import { Events } from "../sections/Events.tsx";
 import { Contribute } from "../sections/Contribute.tsx";
+import { Welcome } from "../sections/Welcome.tsx";
 import { useEffect } from "react";
 
 export function HomePage() {
@@ -54,6 +55,7 @@ export function HomePage() {
       />
 
       <Hero />
+      <Welcome />
       <Meetings />
       <Connect />
       <Events />
