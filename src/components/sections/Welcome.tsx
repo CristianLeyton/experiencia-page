@@ -21,12 +21,11 @@ export function Welcome() {
               Vos y tu familia son importantes para nosotros, y nuestro deseo es que sientas la increíble bondad de Dios en este lugar, que florezcas en Su gracia y que conectes rápidamente con el corazón de nuestra casa.
             </p>
 
-            <p>Más abajo vas a encontrar información acerca de quién es Jesús y cómo avanzar en este nuevo comienzo de fe.</p>
+            <p>Más abajo vas a encontrar información sobre cómo avanzar en este nuevo comienzo de fe.</p>
 
             <p>
               Tenemos un gran equipo de personas a las que les encantaría conectar con vos, conocerte y acompañarte en tus próximos pasos. Podés dejarnos tus datos para que un miembro de nuestro equipo se ponga en contacto contigo. Estamos aquí para servirte.
             </p>
-
             <p>
               Bienvenido a la familia.
             </p>

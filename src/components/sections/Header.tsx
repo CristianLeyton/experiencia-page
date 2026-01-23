@@ -1,4 +1,5 @@
 import Logo from "../../assets/images/logo-120x100.png";
+import LogoHillsong from "../../assets/images/logo-hillsong-network.png";
 import { SwitchTheme } from "../utilities/SwitchTheme.tsx";
 import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
 import { useState } from "react";
@@ -34,31 +35,41 @@ export function Header() {
     <header className="dark:text-white sticky top-0 z-10 bg-white dark:bg-primary">
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
         {/* LOGO */}
-        <a href="/">
-          <img
-            src={Logo}
-            className="h-16 md:h-20"
-            alt="Logo Iglesia Experiencia con Dios"
-          />
-        </a>
+        <section className="flex gap-4 items-center justify-start w-full">
+        <div className="flex gap-0 items-center shrink-0">
+          <a href="/">
+            <img
+              src={Logo}
+              className="h-16 md:h-18"
+              alt="Logo Iglesia Experiencia con Dios"
+            />
+          </a>
+
+          <a href="https://network.hillsonglatam.com/" target="_blank">
+            <img
+              src={LogoHillsong}
+              className="h-14 md:h-16 dark:invert"
+              alt="Logo Hillsong Network"
+            />
+          </a>
+        </div>
         {/* NAV */}
         <nav
-          className={`absolute md:static 
-    border-r-2 md:border-none 
+          className={`absolute lg:static bg-white
+    border-r-2 lg:border-none 
     border-primary dark:border-white 
-    top-0 flex flex-col md:flex-row 
+    top-0 flex flex-col lg:flex-row 
     transition-all duration-600 ease-in-out
-    items-center bg-white dark:bg-primary 
-    justify-center 
-    w-full md:w-auto 
-    h-dvh md:h-auto
-    md:transition-none 
+    items-center dark:bg-primary 
+justify-center 
+    w-full lg:w-[60%]
+    h-dvh lg:h-auto
+    lg:transition-none 
     gap-8 text-2xl sm:text-base 2xl:text-lg
-    ${
-      openMenu
-        ? "left-0 visible"
-        : "invisible -left-[150%] md:visible md:left-0"
-    }
+    ${openMenu
+              ? "left-0 visible"
+              : "invisible -left-[150%] lg:visible lg:left-0"
+            }
   `}
         >
           <Item href="/#inicio" onOpenMenu={handleoOpenMenu}>
@@ -77,11 +88,11 @@ export function Header() {
             Contribuir
           </Item>
         </nav>
-
+        </section>
         <span className="flex gap-4">
           <SwitchTheme />
           <MenuHamburger
-            className="block md:hidden"
+            className="block lg:hidden"
             isOpen={openMenu}
             onOpenMenu={handleoOpenMenu}
           />
