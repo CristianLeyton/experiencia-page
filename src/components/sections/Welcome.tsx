@@ -7,11 +7,11 @@ export function Welcome() {
         <div className="flex flex-col gap-4 bg-white border border-primary dark:border-white dark:bg-primary rounded-xl p-4 md:p-8 xl:text-lg text-left max-w-6xl mx-auto">
           <Title text="Una nueva experiencia" />
 
-          <h2 className="text-2xl font-swash md:mt-2">
+          <h2 className="text-2xl font-swash md:mt-2 text-center md:text-left">
             Bienvenido a <br className="block md:hidden"/> Experiencia con Dios
           </h2>
 
-          <div className="flex flex-col gap-4 text-neutral-700 dark:text-neutral-300 p-2 md:p-0">
+          <div className="flex flex-col gap-4 text-neutral-700 dark:text-neutral-300 p-2 md:p-0 ">
             <p>
               Felicitaciones por este nuevo paso de fe que has tomado.
               Estamos muy contentos de que hayas asistido a nuestra iglesia y esperamos que te hayas sentido bienvenido.
