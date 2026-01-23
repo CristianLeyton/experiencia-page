@@ -1,4 +1,4 @@
-import LogoGrande from "../../assets/images/logo.png";
+import LogoGrande from "../../assets/images/logo-500x500.png";
 import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
@@ -19,7 +19,7 @@ export function Hero() {
         <img
           src={LogoGrande}
           alt="Experiencia con Dios Logo grande"
-          className="h-48 md:h-52 2xl:h-60 mt-2 -mb-1 dark:invert"
+          className="h-48 md:h-52 2xl:h-60 mt-2 -mb-1 "
         />
       </div>
       {/* Bienvenida */}
