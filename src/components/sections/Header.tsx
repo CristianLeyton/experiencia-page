@@ -1,4 +1,4 @@
-import Logo from "../../assets/images/logo-120x100.png";
+import Logo from "../../assets/images/logo.png";
 import LogoHillsong from "../../assets/images/logo-hillsong-network.png";
 import { SwitchTheme } from "../utilities/SwitchTheme.tsx";
 import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
@@ -35,12 +35,12 @@ export function Header() {
     <header className="dark:text-white sticky top-0 z-10 bg-white dark:bg-primary">
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
         {/* LOGO */}
-        <section className="flex gap-4 items-center justify-start w-full">
-        <div className="flex gap-0 items-center shrink-0">
+        <section className="flex gap-2 items-center justify-start w-full">
+        <div className="flex gap-2 items-center shrink-0">
           <a href="/">
             <img
               src={Logo}
-              className="h-16 md:h-18 dark:invert"
+              className="h-15 md:h-17 dark:invert scale-100"
               alt="Logo Iglesia Experiencia con Dios"
             />
           </a>
@@ -62,7 +62,7 @@ export function Header() {
     transition-all duration-600 ease-in-out
     items-center dark:bg-primary 
 justify-center 
-    w-full lg:w-[60%]
+    w-full lg:w-[56%] xl:w-[61%]
     h-dvh lg:h-auto
     lg:transition-none 
     gap-8 text-2xl sm:text-base 2xl:text-lg
