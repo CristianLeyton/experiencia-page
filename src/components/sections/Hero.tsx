@@ -19,7 +19,7 @@ export function Hero() {
         <img
           src={LogoGrande}
           alt="Experiencia con Dios Logo grande"
-          className="h-48 md:h-52 2xl:h-60 mt-0 mb-0 dark:invert"
+          className="h-48 md:h-52 2xl:h-60 mt-2 -mb-1 dark:invert"
         />
       </div>
       {/* Bienvenida */}
