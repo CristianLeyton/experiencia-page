@@ -4,7 +4,7 @@ export function Welcome() {
   return (
     <section id="bienvenida" className="scroll-m-20 py-8 px-4 text-primary dark:text-white card">
       <div className="container mx-auto">
-        <div className="flex flex-col gap-4 bg-white border border-primary dark:border-white dark:bg-primary rounded-xl p-8 xl:text-lg text-left max-w-6xl mx-auto">
+        <div className="flex flex-col gap-4 bg-white border border-primary dark:border-white dark:bg-primary rounded-xl p-4 md:p-8 xl:text-lg text-left max-w-6xl mx-auto">
           <Title text="Una nueva experiencia" />
 
           <h2 className="text-2xl font-swash mt-2">
