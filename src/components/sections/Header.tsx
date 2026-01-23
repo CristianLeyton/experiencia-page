@@ -40,7 +40,7 @@ export function Header() {
           <a href="/">
             <img
               src={Logo}
-              className="h-16 md:h-18"
+              className="h-16 md:h-18 dark:invert"
               alt="Logo Iglesia Experiencia con Dios"
             />
           </a>
