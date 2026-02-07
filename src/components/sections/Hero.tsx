@@ -3,7 +3,7 @@ import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
 
-import Poster from "../../assets/images/1.jpg";
+import Poster from "../../assets/images/1.jpeg";
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
 import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
 
