@@ -6,7 +6,7 @@ import { IconChevronDown } from "../icons/IconChevronDown";
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
 import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
 
-import { useRef,} from "react";
+import { useRef, useEffect } from "react";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -16,6 +16,18 @@ const redes = {
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // iOS puede bloquearlo igual, pero no rompe nada
+      });
+    }
+  }, []);
 
   return (
     <section
