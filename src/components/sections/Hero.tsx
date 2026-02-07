@@ -3,7 +3,7 @@ import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
 
-import Poster from "../../assets/images/1.jpeg";
+import Poster from "../../assets/images/reunion.webp";
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
 import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
 
@@ -44,12 +44,12 @@ export function Hero() {
         playsInline
         poster={Poster}
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden"
       >
-        {/* iOS / Safari */}
-        <source src={IntroVideoMp4} type="video/mp4" />
         {/* Chrome / Firefox */}
         <source src={IntroVideoWebm} type="video/webm" />
+        {/* iOS / Safari */}
+        <source src={IntroVideoMp4} type="video/mp4" />
       </video>
 
       {/* Overlay */}
