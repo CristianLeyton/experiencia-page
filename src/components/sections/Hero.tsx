@@ -3,7 +3,7 @@ import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
-import IntroVideo from "../../assets/videos/intro-2026.webm";
+import IntroVideo from "../../assets/videos/intro-2026.mp4";
 import { useRef, useEffect } from "react";
 
 const redes = {
