@@ -4,7 +4,6 @@ import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
 import IntroVideo from "../../assets/videos/intro-2026.mp4";
-import { useRef, useEffect } from "react";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -13,29 +12,19 @@ const redes = {
 };
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    videoRef.current?.play().catch(() => {
-      // Fallback si autoplay falla
-    });
-  }, []);
-
   return (
     <section
       id="inicio"
       className="relative h-dvh w-full overflow-hidden text-white"
     >
       <video
-        ref={videoRef}
         playsInline
         autoPlay
         muted
         loop
-        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src={IntroVideo} type="video/webm" />
+        <source src={IntroVideo} type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-black/50" />
