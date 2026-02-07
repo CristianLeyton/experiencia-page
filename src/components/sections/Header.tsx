@@ -32,62 +32,63 @@ export function Header() {
   }
 
   return (
-    <header className="dark:text-white sticky top-0 z-10 bg-white dark:bg-primary">
+    <header className="dark:text-white fixed top-0 w-full z-20 bg-white dark:bg-primary">
       <div className="px-4 py-2 flex items-center justify-between font-semibold container mx-auto">
         {/* LOGO */}
         <section className="flex gap-2 items-center justify-start w-full">
-        <div className="flex gap-0 items-center shrink-0">
-          <a href="/">
-            <img
-              src={Logo}
-              className="h-15 md:h-17 dark:invert scale-100"
-              alt="Logo Iglesia Experiencia con Dios"
-            />
-          </a>
+          <div className="flex gap-0 items-center shrink-0">
+            <a href="/">
+              <img
+                src={Logo}
+                className="h-15 md:h-17 dark:invert scale-100"
+                alt="Logo Iglesia Experiencia con Dios"
+              />
+            </a>
 
-          <a href="https://network.hillsonglatam.com/" target="_blank">
-            <img
-              src={LogoHillsong}
-              className="h-14 md:h-16 dark:invert"
-              alt="Logo Hillsong Network"
-            />
-          </a>
-        </div>
-        {/* NAV */}
-        <nav
-          className={`absolute lg:static bg-white
+            <a href="https://network.hillsonglatam.com/" target="_blank">
+              <img
+                src={LogoHillsong}
+                className="h-14 md:h-16 dark:invert"
+                alt="Logo Hillsong Network"
+              />
+            </a>
+          </div>
+          {/* NAV */}
+          <nav
+            className={`absolute lg:static bg-white
     border-r-2 lg:border-none 
     border-primary dark:border-white 
     top-0 flex flex-col lg:flex-row 
     transition-all duration-600 ease-in-out
     items-center dark:bg-primary 
 justify-center 
-    w-full lg:w-[56%] xl:w-[61%]
+    w-full lg:w-[56%] xl:w-[61%] 2xl:w-[66%]
     h-dvh lg:h-auto
     lg:transition-none 
     gap-8 text-2xl sm:text-base 2xl:text-lg
-    ${openMenu
-              ? "left-0 visible"
-              : "invisible -left-[150%] lg:visible lg:left-0"
-            }
+    ${
+      openMenu
+        ? "left-0 visible"
+        : "invisible -left-[150%] lg:visible lg:left-0"
+    }
   `}
-        >
-          <Item href="/#inicio" onOpenMenu={handleoOpenMenu}>
-            Bienvenida
-          </Item>
-          <Item href="/#reuniones" onOpenMenu={handleoOpenMenu}>
-            Reuniones
-          </Item>
-          <Item href="/#conectar" onOpenMenu={handleoOpenMenu}>
-            Conectar
-          </Item>
-          <Item href="/#eventos" onOpenMenu={handleoOpenMenu}>
-            Eventos
-          </Item>
-          <Item href="/#contribuir" onOpenMenu={handleoOpenMenu}>
-            Contribuir
-          </Item>
-        </nav>
+          >
+            <Item href="/#inicio" onOpenMenu={handleoOpenMenu}>
+              Bienvenida
+            </Item>
+            <Item href="/#reuniones" onOpenMenu={handleoOpenMenu}>
+              Reuniones
+            </Item>
+            <Item href="/#conectar" onOpenMenu={handleoOpenMenu}>
+              Conectar
+            </Item>
+            <Item href="/#eventos" onOpenMenu={handleoOpenMenu}>
+              Eventos
+            </Item>
+            <Item href="/#contribuir" onOpenMenu={handleoOpenMenu}>
+              Contribuir
+            </Item>
+          </nav>
         </section>
         <span className="flex gap-4">
           <SwitchTheme />

@@ -1,8 +1,8 @@
-import { IconChebron } from "../icons/IconChebron";
+/* import { IconChebron } from "../icons/IconChebron"; */
 import { Title } from "../utilities/Title";
 import { useState } from "react";
 import adoracion from "../../assets/images/adoracion.webp";
-import { Link } from "react-router";
+/* import { Link } from "react-router"; */
 
 export const areas = [
     "Niños y Adolescentes",
@@ -85,15 +85,15 @@ export function Contribute() {
           tiempo y talento sirviendo en un área, o a través de tus finanzas.{" "}
           <br /> <b>¡Elige cómo quieres hacer la diferencia!</b>
           <br />
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm pt-1">
+ {/*          <p className="text-zinc-500 dark:text-zinc-400 text-sm pt-1">
             Contribuir no es obligatorio, no te sientas presionado a hacerlo. Lo
             más importante es tu relación con Dios.
-          </p>
+          </p> */}
         </div>
       </div>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 py-6 gap-6">
-        <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
+{/*         <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
           <h3 className="text-2xl font-swash">
             Contribuir con tu tiempo y talento
           </h3>
@@ -120,7 +120,7 @@ export function Contribute() {
           >
             Quiero ser parte
           </Link>
-        </article>
+        </article> */}
 
         <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl py-6 px-8 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
           <h3 className="text-2xl font-swash">Diezmos y ofrendas</h3>
