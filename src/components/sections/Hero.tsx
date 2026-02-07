@@ -4,6 +4,7 @@ import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
 import IntroVideo from "../../assets/videos/intro-2026.webm";
+import { useRef, useEffect } from "react";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -12,16 +13,26 @@ const redes = {
 };
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {
+      // Fallback si autoplay falla
+    });
+  }, []);
+
   return (
     <section
       id="inicio"
       className="relative h-dvh w-full overflow-hidden text-white"
     >
       <video
+        ref={videoRef}
         playsInline
         autoPlay
         muted
         loop
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={IntroVideo} type="video/webm" />
@@ -29,9 +40,9 @@ export function Hero() {
 
       <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center gap-6 md:gap-4 2xl:gap-6 text-center fade-in-animation">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center gap-4 md:gap-4 2xl:gap-6 text-center fade-in-animation">
         {/* Bienvenida */}
-        <div className="mt-20">
+        <div className="mt-30">
           <h3 className="text-5xl md:text-6xl 2xl:text-7xl font-swash">
             Bienvenido a Casa
           </h3>
@@ -47,7 +58,7 @@ export function Hero() {
         </div>
 
         {/* Texto presentación */}
-        <div className="flex flex-col gap-6 text-lg xl:text-xl 2xl:text-2xl max-w-4xl text-pretty">
+        <div className="flex flex-col gap-4 lg:gap-6 text-lg xl:text-xl 2xl:text-2xl max-w-4xl text-pretty">
           <p>
             Somos una iglesia joven e inclusiva que ama a Dios, a las personas y
             a nuestra ciudad.
@@ -73,7 +84,7 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="pt-10">
+        <div className="pt-5">
           <a href="#bienvenida" className="animate-pulse ">
             <IconChevronDown className="text-white size-8 animate-bounce" />
           </a>
