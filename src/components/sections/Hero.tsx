@@ -18,10 +18,10 @@ export function Hero() {
       className="relative h-dvh w-full overflow-hidden text-white"
     >
       <video
-        autoPlay
-        loop
-        muted
         playsInline
+        autoPlay
+        muted
+        loop
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={IntroVideo} type="video/webm" />
@@ -73,9 +73,10 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="pt-10"><a href="#bienvenida" className="animate-pulse ">
-          <IconChevronDown className="text-white size-8 animate-bounce" />
-        </a>
+        <div className="pt-10">
+          <a href="#bienvenida" className="animate-pulse ">
+            <IconChevronDown className="text-white size-8 animate-bounce" />
+          </a>
         </div>
       </div>
     </section>
