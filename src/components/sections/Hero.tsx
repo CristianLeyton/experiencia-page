@@ -44,10 +44,10 @@ export function Hero() {
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        {/* Chrome / Firefox */}
-        <source src={IntroVideoWebm} type="video/webm" />
         {/* iOS / Safari */}
         <source src={IntroVideoMp4} type="video/mp4" />
+        {/* Chrome / Firefox */}
+        <source src={IntroVideoWebm} type="video/webm" />
       </video>
 
       {/* Overlay */}
