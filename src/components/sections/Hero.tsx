@@ -38,8 +38,8 @@ export function Hero() {
       <video
         ref={videoRef}
         autoPlay
-        muted
         loop
+        muted
         playsInline
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
