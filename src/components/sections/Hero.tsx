@@ -3,6 +3,7 @@ import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
 
+import Poster from "../../assets/images/1.jpg";
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
 import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
 
@@ -32,7 +33,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-screen w-full overflow-hidden text-white"
+      className="relative h-dvh w-full overflow-hidden text-white"
     >
       {/* Video background */}
       <video
@@ -41,6 +42,7 @@ export function Hero() {
         loop
         muted
         playsInline
+        poster={Poster}
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
