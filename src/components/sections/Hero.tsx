@@ -2,7 +2,8 @@
 import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
-import IntroVideo from "../../assets/videos/intro-2026.mp4";
+import { IconChevronDown } from "../icons/IconChevronDown";
+import IntroVideo from "../../assets/videos/intro-2026.webm";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -23,7 +24,7 @@ export function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src={IntroVideo} type="video/mp4" />
+        <source src={IntroVideo} type="video/webm" />
       </video>
 
       <div className="absolute inset-0 bg-black/50" />
@@ -39,14 +40,14 @@ export function Hero() {
         <div className="my-2">
           <a
             href="#reuniones"
-            className="bg-primary rounded-full px-4 py-2 text-white font-semibold text-lg hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
+            className="bg-primary rounded-full px-4 py-2 text-white font-semibold text-xl hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
           >
             Visitanos
           </a>
         </div>
 
         {/* Texto presentación */}
-        <div className="flex flex-col gap-2 xl:text-lg">
+        <div className="flex flex-col gap-6 text-lg xl:text-xl 2xl:text-2xl max-w-4xl text-pretty">
           <p>
             Somos una iglesia joven e inclusiva que ama a Dios, a las personas y
             a nuestra ciudad.
@@ -70,6 +71,11 @@ export function Hero() {
           <a href={redes.youtube} target="_blank">
             <IconYoutube className="size-11 md:size-13" />
           </a>
+        </div>
+
+        <div className="pt-10"><a href="#bienvenida" className="animate-pulse ">
+          <IconChevronDown className="text-white size-8 animate-bounce" />
+        </a>
         </div>
       </div>
     </section>
