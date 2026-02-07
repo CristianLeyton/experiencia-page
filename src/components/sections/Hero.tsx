@@ -1,9 +1,12 @@
-/* import LogoGrande from "../../assets/images/logo-500x500.png"; */
 import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
-import IntroVideo from "../../assets/videos/intro-2026.mp4";
+
+import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
+import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
+
+import { useRef, useEffect } from "react";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -12,23 +15,45 @@ const redes = {
 };
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // iOS puede bloquearlo igual, pero no rompe nada
+      });
+    }
+  }, []);
+
   return (
     <section
       id="inicio"
       className="relative h-dvh w-full overflow-hidden text-white"
     >
+      {/* Video background */}
       <video
-        playsInline
+        ref={videoRef}
         autoPlay
         muted
         loop
+        playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src={IntroVideo} type="video/mp4" />
+        {/* Chrome / Firefox */}
+        <source src={IntroVideoWebm} type="video/webm" />
+        {/* iOS / Safari */}
+        <source src={IntroVideoMp4} type="video/mp4" />
       </video>
 
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
+      {/* Content */}
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center gap-4 md:gap-4 2xl:gap-6 text-center fade-in-animation">
         {/* Bienvenida */}
         <div className="mt-30">
@@ -36,17 +61,18 @@ export function Hero() {
             Bienvenido a Casa
           </h3>
         </div>
-        {/* Botón de acción */}
+
+        {/* Botón */}
         <div className="my-2">
           <a
             href="#reuniones"
             className="bg-primary rounded-full px-4 py-2 text-white font-semibold text-xl hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
           >
-            Visitanos
+            Visitános
           </a>
         </div>
 
-        {/* Texto presentación */}
+        {/* Texto */}
         <div className="flex flex-col gap-4 lg:gap-6 text-lg xl:text-xl 2xl:text-2xl max-w-4xl text-pretty">
           <p>
             Somos una iglesia joven e inclusiva que ama a Dios, a las personas y
@@ -57,24 +83,25 @@ export function Hero() {
             cualquiera pueda sentirse en casa, encontrar vida, propósito y
             esperanza.
           </p>
-
           <p>Vení tal como sos.</p>
         </div>
-        {/* Redes sociales */}
+
+        {/* Redes */}
         <div className="flex gap-5 items-center *:hover:text-yellow-500 *:transition-colors *:duration-300">
-          <a href={redes.instagram} target="_blank">
+          <a href={redes.instagram} target="_blank" rel="noopener noreferrer">
             <IconInstagram className="size-10 md:size-12" />
           </a>
-          <a href={redes.facebook} target="_blank">
+          <a href={redes.facebook} target="_blank" rel="noopener noreferrer">
             <IconFacebook className="size-10 md:size-12" />
           </a>
-          <a href={redes.youtube} target="_blank">
+          <a href={redes.youtube} target="_blank" rel="noopener noreferrer">
             <IconYoutube className="size-11 md:size-13" />
           </a>
         </div>
 
+        {/* Scroll */}
         <div className="pt-5">
-          <a href="#bienvenida" className="animate-pulse ">
+          <a href="#bienvenida" className="animate-pulse">
             <IconChevronDown className="text-white size-8 animate-bounce" />
           </a>
         </div>
