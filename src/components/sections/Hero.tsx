@@ -68,7 +68,7 @@ export function Hero() {
         <div className="my-2">
           <a
             href="#reuniones"
-            className="bg-primary rounded-full px-4 py-2 text-white font-semibold text-xl hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
+            className="bg-primary/75 rounded-full px-4 py-2 text-white font-semibold text-xl hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
           >
             Visitános
           </a>
