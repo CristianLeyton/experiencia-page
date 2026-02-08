@@ -44,7 +44,7 @@ export function Hero() {
         playsInline/* 
         poster={Poster} */
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden"
+        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in"
       >
         {/* Chrome / Firefox */}
         <source src={IntroVideoWebm} type="video/webm" />
