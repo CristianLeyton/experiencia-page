@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-dvh w-full overflow-hidden text-white"
+      className="relative h-dvh w-full overflow-hidden text-white bg-black"
     >
       {/* Video background */}
       <video
@@ -44,7 +44,7 @@ export function Hero() {
         playsInline/* 
         poster={Poster} */
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in"
+        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in bg-black"
       >
         {/* Chrome / Firefox */}
         <source src={IntroVideoWebm} type="video/webm" />
