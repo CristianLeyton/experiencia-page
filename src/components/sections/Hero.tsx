@@ -2,12 +2,12 @@ import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
-
-import Poster from "../../assets/images/reunion.webp";
+/* 
+import Poster from "../../assets/images/reunion.webp"; */
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
 import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -15,21 +15,12 @@ const redes = {
   youtube: "https://www.youtube.com/@ExperienciaconDios",
 };
 
-const detectIOS = () => {
-  return /iphone|ipad|ipod|iOS/.test(navigator.userAgent.toLowerCase());
-};
-
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isIOS, setIsIOS] = useState(false);
-
-  useEffect(() => {
-    setIsIOS(detectIOS());
-  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || isIOS) return;
+    if (!video) return;
 
     const playPromise = video.play();
     if (playPromise !== undefined) {
@@ -37,36 +28,29 @@ export function Hero() {
         // iOS puede bloquearlo igual, pero no rompe nada
       });
     }
-  }, [isIOS]);
+  }, []);
 
   return (
     <section
       id="inicio"
       className="relative h-dvh w-full overflow-hidden text-white"
     >
-      {/* Video/Image background */}
-      {!isIOS ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in"
-        >
-          {/* Chrome / Firefox */}
-          <source src={IntroVideoWebm} type="video/webm" />
-          {/* Android / Safari */}
-          <source src={IntroVideoMp4} type="video/mp4" />
-        </video>
-      ) : (
-        <img
-          src={Poster}
-          alt="Experiencia con Dios - Reunión"
-          className="absolute inset-0 w-full h-full object-cover animate-fade-in"
-        />
-      )}
+      {/* Video background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline/* 
+        poster={Poster} */
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden"
+      >
+        {/* Chrome / Firefox */}
+        <source src={IntroVideoWebm} type="video/webm" />
+        {/* iOS / Safari */}
+        <source src={IntroVideoMp4} type="video/mp4" />
+      </video>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50" />
