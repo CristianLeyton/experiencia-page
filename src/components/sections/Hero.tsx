@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-dvh w-full overflow-hidden text-white"
+      className="relative h-dvh w-full overflow-hidden text-white bg-primary"
     >
       {/* Video background */}
       <video
@@ -44,7 +44,7 @@ export function Hero() {
         playsInline/* 
         poster={Poster} */
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in"
+        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in bg-primary"
       >
         {/* Chrome / Firefox */}
         <source src={IntroVideoWebm} type="video/webm" />
@@ -68,7 +68,7 @@ export function Hero() {
         <div className="my-2">
           <a
             href="#reuniones"
-            className="bg-primary rounded-full px-4 py-2 text-white font-semibold text-xl hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
+            className="bg-black/80 rounded-full px-4 py-2 text-white font-semibold text-xl hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500"
           >
             Visitános
           </a>
