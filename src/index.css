@@ -69,6 +69,15 @@
   animation: fade-in 0.6s ease-in-out forwards;
 }
 
+/* Fade suave para video hero: solo cuando esté listo */
+.video-fade-in {
+  opacity: 0;
+  transition: opacity 1.2s ease-out;
+}
+.video-fade-in.is-ready {
+  opacity: 1;
+}
+
 @keyframes fade-in {
   from {
     transform: translateY(20px) scale(1.1);

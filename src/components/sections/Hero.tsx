@@ -7,7 +7,7 @@ import Poster from "../../assets/images/reunion.webp"; */
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
 import IntroVideoWebm from "../../assets/videos/intro-2026.webm";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
@@ -17,10 +17,15 @@ const redes = {
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  const handleCanPlay = () => setVideoReady(true);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    if (video.readyState >= 2) setVideoReady(true);
 
     const playPromise = video.play();
     if (playPromise !== undefined) {
@@ -41,10 +46,10 @@ export function Hero() {
         autoPlay
         loop
         muted
-        playsInline/* 
-        poster={Poster} */
+        playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden animate-fade-in bg-primary"
+        onCanPlay={handleCanPlay}
+        className={`absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden video-fade-in bg-primary ${videoReady ? "is-ready" : ""}`}
       >
         {/* Chrome / Firefox */}
         <source src={IntroVideoWebm} type="video/webm" />

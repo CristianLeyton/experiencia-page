@@ -1,5 +1,5 @@
 import Logo from "../../assets/images/logo.png";
-import LogoHillsong from "../../assets/images/logo-hillsong-network.png";
+/* import LogoHillsong from "../../assets/images/logo-hillsong-network.png"; */
 import { SwitchTheme } from "../utilities/SwitchTheme.tsx";
 import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { HashLink as NavLink } from "react-router-hash-link";
 type ItemProps = {
   href: string;
   children: React.ReactNode;
-  onOpenMenu: any;
+  onOpenMenu: () => void;
 };
 
 function Item({ href, children, onOpenMenu }: ItemProps) {
@@ -45,13 +45,13 @@ export function Header() {
               />
             </a>
 
-            <a href="https://network.hillsonglatam.com/" target="_blank">
+{/*             <a href="https://network.hillsonglatam.com/" target="_blank">
               <img
                 src={LogoHillsong}
                 className="h-14 md:h-16 dark:invert"
                 alt="Logo Hillsong Network"
               />
-            </a>
+            </a> */}
           </div>
           {/* NAV */}
           <nav
