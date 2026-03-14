@@ -45,7 +45,7 @@ export function Header() {
               />
             </a>
 
-{/*             <a href="https://network.hillsonglatam.com/" target="_blank">
+            {/*             <a href="https://network.hillsonglatam.com/" target="_blank">
               <img
                 src={LogoHillsong}
                 className="h-14 md:h-16 dark:invert"
@@ -62,7 +62,7 @@ export function Header() {
     transition-all duration-600 ease-in-out
     items-center dark:bg-primary 
 justify-center 
-    w-full lg:w-[56%] xl:w-[61%] 2xl:w-[66%]
+    w-[90%]
     h-dvh lg:h-auto
     lg:transition-none 
     gap-8 text-2xl sm:text-base 2xl:text-lg
