@@ -62,7 +62,7 @@ export function Header() {
     transition-all duration-600 ease-in-out
     items-center dark:bg-primary 
 justify-center 
-    w-[90%]
+    lg:w-[90%] w-full
     h-dvh lg:h-auto
     lg:transition-none 
     gap-8 text-2xl sm:text-base 2xl:text-lg
