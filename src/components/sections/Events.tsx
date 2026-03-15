@@ -72,7 +72,7 @@ export function Events() {
             title="Santa cena"
             text="Participa de la santa cena con nuestra iglesia. Recordemos juntos la muerte y resurrección de nuestro Señor."
             location="Hotel Brizo, Salón Quebrada"
-            date="Domingo 01 de Marzo"
+            date="Domingo 05 de Abril"
             hour="10:30hs"
           />
 
