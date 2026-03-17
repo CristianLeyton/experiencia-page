@@ -85,6 +85,9 @@ justify-center
             <Item href="/#eventos" onOpenMenu={handleoOpenMenu}>
               Eventos
             </Item>
+            <Item href="/#anuncios" onOpenMenu={handleoOpenMenu}>
+              Anuncios
+            </Item>
             <Item href="/#contribuir" onOpenMenu={handleoOpenMenu}>
               Contribuir
             </Item>

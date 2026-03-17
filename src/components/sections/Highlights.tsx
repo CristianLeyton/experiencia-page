@@ -76,12 +76,12 @@ function HighlightCard({
 export function Highlights() {
   return (
     <section
-      id="momentos"
+      id="anuncios"
       className="scroll-m-20 py-8 px-4 text-primary dark:text-white bg-secondary/70 dark:bg-zinc-900"
     >
       <div className="container mx-auto">
         <div className="text-center flex flex-col gap-4">
-          <Title text="Anuncios importantes" />
+          <Title text="Anuncios" />
           <p className="xl:text-lg text-center">
             Descubre los anuncios más importantes de nuestra iglesia
           </p>
