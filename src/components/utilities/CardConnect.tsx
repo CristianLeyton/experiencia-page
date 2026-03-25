@@ -76,7 +76,7 @@ export function CardConnect({
 }) {
 
   return (
-    <article className="bg-zinc-50 dark:bg-zinc-950 rounded-xl p-4 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
+    <a href={link} target="_blank" className="bg-zinc-50 dark:bg-zinc-950 rounded-xl p-4 text-center hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group flex flex-col gap-2 justify-center items-center card">
       {iconCoffee && (
         <span className="group-hover:text-yellow-500 transition-colors duration-300">
           <IconCoffee className="size-16" />
@@ -97,13 +97,11 @@ export function CardConnect({
       <h3 className="text-2xl font-swash">{title}</h3>
       <p className="text-sm text-zinc-500 dark:text-zinc-400">{text}</p>
 
-      <a
-        href={link}
-        target="_blank"
-        className="mt-1 bg-primary rounded-full px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm"
+      <button
+        className="mt-1 bg-primary rounded-full px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm cursor-pointer"
       >
         Formulario
-      </a>
-    </article>
+      </button>
+    </a>
   );
 }

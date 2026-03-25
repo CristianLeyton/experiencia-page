@@ -1,5 +1,6 @@
 import { Title } from "../utilities/Title";
 import curso from "../../assets/images/anuncios/curso.webp";
+import pascua from "../../assets/images/anuncios/pascua.webp";
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconTime } from "../icons/IconTime";
@@ -97,6 +98,16 @@ export function Highlights() {
             hour="21:00hs - 22:00hs"
             location="Encuentros por Zoom | Plataforma Hillsong"
             link="https://nightschool.thinkific.com/courses/liderazgo"
+          />
+          <HighlightCard
+            title="Domingo de Resurreción"
+            text="Pascua 2026 - Te invitamos a recordar la resurrección de nuestro Señor, celebraremos la Santa Cena en memoria de Jesús. "
+            imageSrc={pascua}
+            imageAlt="Pascua 2026 - Santa cena en casa"
+            date="Domingo 05 de Abril"
+            hour="10.30hs - 12:00hs"
+            location="Hotel Brizo, Salón Quebrada"
+            link="https://google.com/maps?cid=14577195373887313815&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAEYASAB&hl=es&gl=AR&source=embed"
           />
         </section>
       </div>
