@@ -70,9 +70,9 @@ export function Events() {
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
           <EventCard
             title="Santa cena"
-            text="Participa de la santa cena con nuestra iglesia. Recordemos juntos la muerte y resurrección de nuestro Señor."
+            text="Participemos juntos de la santa cena, en esta ocación nos visita Kevin Lutsch desde Hillsong Buenos Aires. Recordamos la muerte y resurrección de nuestro Señor."
             location="Hotel Brizo, Salón Quebrada"
-            date="Domingo 05 de Abril"
+            date="Domingo 02 de Agosto"
             hour="10:30hs"
           />
 

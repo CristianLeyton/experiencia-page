@@ -3,7 +3,8 @@ import Logo from "../../assets/images/logo.png";
 import { SwitchTheme } from "../utilities/SwitchTheme.tsx";
 import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
 import { useState } from "react";
-import { HashLink as NavLink } from "react-router-hash-link";
+import { useLocation, useNavigate } from "react-router";
+import { scrollToSectionWhenReady } from "../../utils/scrollToSection";
 
 type ItemProps = {
   href: string;
@@ -12,15 +13,37 @@ type ItemProps = {
 };
 
 function Item({ href, children, onOpenMenu }: ItemProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    onOpenMenu();
+
+    const [, hashPart = ""] = href.split("#");
+    const sectionId = hashPart.trim();
+    const targetPath = href.split("#")[0] || "/";
+
+    if (location.pathname !== targetPath) {
+      navigate(sectionId ? `${targetPath}#${sectionId}` : targetPath);
+      return;
+    }
+
+    if (sectionId) {
+      window.history.replaceState(null, "", `${targetPath}#${sectionId}`);
+      scrollToSectionWhenReady(sectionId);
+    }
+  };
+
   return (
-    <NavLink
-      to={href}
-      onClick={onOpenMenu}
+    <a
+      href={href}
+      onClick={handleClick}
       className="relative py-1 hover:text-yellow-500 transition-all duration-300 after:border-b-2 after:border-yellow-500 after:bottom-0 after:left-0 after:absolute after:w-0 hover:after:w-full after:transition-all after:duration-300 active:text-yellow-500
     "
     >
       {children}
-    </NavLink>
+    </a>
   );
 }
 

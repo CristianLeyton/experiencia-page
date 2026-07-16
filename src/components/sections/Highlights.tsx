@@ -1,6 +1,6 @@
 import { Title } from "../utilities/Title";
-import curso from "../../assets/images/anuncios/curso.webp";
-import pascua from "../../assets/images/anuncios/pascua.webp";
+import sisterhood from "../../assets/images/anuncios/sisterhood.jpeg";
+import visita from "../../assets/images/anuncios/visita.jpeg";
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconTime } from "../icons/IconTime";
@@ -12,9 +12,9 @@ type HighlightCardProps = {
   imageSrc: string;
   imageAlt: string;
   date: string;
-  hour: string;
+  hour?: string;
   location: string;
-  link: string;
+  link?: string;
 };
 
 function HighlightCard({
@@ -30,6 +30,7 @@ function HighlightCard({
   return (
     <article className="bg-white dark:bg-primary rounded-xl overflow-hidden hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group w-full md:max-w-sm xl:max-w-lg flex flex-col card">
       <div className="h-68 w-full overflow-hidden pt-4">
+        {link && (
         <a href={link} target="_blank">
         <img
           src={imageSrc}
@@ -38,6 +39,15 @@ function HighlightCard({
           loading="lazy"
         />
         </a>
+        )}
+        {!link && (
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        )}
       </div>
 
       <div className="px-8 py-4 flex flex-col gap-3">
@@ -54,9 +64,11 @@ function HighlightCard({
         {" "}
         <IconCalendar className="text-yellow-500" /> <span>{date}</span>
       </p>
-      <p className="flex items-center gap-2">
-        <IconTime className="text-yellow-500" /> <span>{hour}</span>
-      </p>
+      {hour && (
+        <p className="flex items-center gap-2">
+          <IconTime className="text-yellow-500" /> <span>{hour}</span>
+        </p>
+      )}
             <p className="flex items-center gap-2">
         <IconMapPin className="text-yellow-500" />
         <span>{location}</span>
@@ -90,24 +102,25 @@ export function Highlights() {
 
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
           <HighlightCard
-            title="Ministry School - Liderazgo"
-            text="Comienza un curso diseñado para todas las personas que deseen crecer y desarrollar su liderazgo basado en los principios de nuestra iglesia."
-            imageSrc={curso}
-            imageAlt="Liderazgo en Iglesia Experiencia con Dios"
-            date="Inicia el 24 de Marzo"
-            hour="21:00hs - 22:00hs"
-            location="Encuentros por Zoom | Plataforma Hillsong"
-            link="https://nightschool.thinkific.com/courses/liderazgo"
+            title="Nos visita Kevin Lutsch"
+            text="Kevin Lutsch nos visita desde Hillsong Buenos Aires, ademas de celebrar la santa cena, Kevin compartirá un mensaje especial para la familia, no te lo pierdas!"
+            imageSrc={visita}
+            imageAlt="Nos visita Kevin Lutsch desde Hillsong Buenos Aires"
+            date="Domingo 02 de Agosto"
+            hour="10:30hs - 12:00hs"
+            location="Hotel Brizo, Salón Quebrada"
+            link=""
           />
           <HighlightCard
-            title="Domingo de Resurreción"
-            text="Pascua 2026 - Te invitamos a recordar la resurrección de nuestro Señor, celebraremos la Santa Cena en memoria de Jesús. "
-            imageSrc={pascua}
-            imageAlt="Pascua 2026 - Santa cena en casa"
-            date="Domingo 05 de Abril"
-            hour="10.30hs - 12:00hs"
-            location="Hotel Brizo, Salón Quebrada"
-            link="https://google.com/maps?cid=14577195373887313815&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAEYASAB&hl=es&gl=AR&source=embed"
+            title="Sisterhood Conference"
+            text="Este año nos volvemos a encontrar para vivir dos días que marcarán nuestro corazones.
+            Será un tiempo único para conectar entre mujeres y tener un encuentro con nuestro creador."
+            imageSrc={sisterhood}
+            imageAlt="Sisterhood Conference"
+            date="25 y 26 de Septiembre de 2026"
+            hour=""
+            location="Teatro Avenida - Av de mayo 1222, Ciudad de Buenos Aires"
+            link="https://ticket.eventpass.click/hillsong/sisterhood-conference"
           />
         </section>
       </div>

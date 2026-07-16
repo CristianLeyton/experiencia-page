@@ -5,10 +5,12 @@ import { NotFoundPage } from "./components/pages/NotFoundPage.tsx";
 import { Footer } from "./components/sections/Footer.tsx";
 import {Routes, Route} from "react-router";
 import { ServicesPage } from "./components/pages/ServicesPage.tsx";
+import { ScrollToHash } from "./components/utilities/ScrollToHash.tsx";
 
 function App() {
   return (
     <>
+      <ScrollToHash />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
