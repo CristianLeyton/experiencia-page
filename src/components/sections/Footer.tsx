@@ -112,8 +112,6 @@ export function Footer() {
           <br  />Desarrollado por{" "}
           <span className="font-iceberg text-sm">{CDL}</span>{" "}
         </a>
-
-        <a href="intent://com.android.settings/#Intent;scheme=android-app;end">Configuración</a>
       </div>
     </footer>
   );
