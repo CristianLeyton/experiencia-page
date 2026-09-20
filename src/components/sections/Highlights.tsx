@@ -1,6 +1,5 @@
 import { Title } from "../utilities/Title";
 import sisterhood from "../../assets/images/anuncios/sisterhood.jpeg";
-import visita from "../../assets/images/anuncios/visita.jpeg";
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconTime } from "../icons/IconTime";
