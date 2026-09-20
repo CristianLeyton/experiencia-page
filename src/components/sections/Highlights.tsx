@@ -101,7 +101,7 @@ export function Highlights() {
         </div>
 
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
-          <HighlightCard
+{/*           <HighlightCard
             title="Nos visita Kevin Lutsch"
             text="Kevin Lutsch nos visita desde Hillsong Buenos Aires, ademas de celebrar la santa cena, Kevin compartirá un mensaje especial para la familia, no te lo pierdas!"
             imageSrc={visita}
@@ -110,7 +110,7 @@ export function Highlights() {
             hour="10:30hs - 12:00hs"
             location="Hotel Brizo, Salón Quebrada"
             link=""
-          />
+          /> */}
           <HighlightCard
             title="Sisterhood Conference"
             text="Este año nos volvemos a encontrar para vivir dos días que marcarán nuestro corazones.
