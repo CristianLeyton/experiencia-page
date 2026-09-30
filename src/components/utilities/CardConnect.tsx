@@ -59,6 +59,29 @@ export function IconGroup(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+
+export function IconUser(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M2 21a8 8 0 0 1 13.292-6" />
+      <circle cx="10" cy="8" r="5" />
+      <path d="M19 16v6" />
+      <path d="M22 19h-6" />
+    </svg>
+  );
+}
+
 export function CardConnect({
   title,
   text,
@@ -66,6 +89,7 @@ export function CardConnect({
   iconCoffee = false,
   iconPray = false,
   iconGroup = false,
+  iconUser = false,
 }: {
   title: string;
   text: string;
@@ -73,6 +97,7 @@ export function CardConnect({
   iconCoffee?: boolean;
   iconPray?: boolean;
   iconGroup?: boolean;
+  iconUser?: boolean;
 }) {
 
   return (
@@ -92,6 +117,11 @@ export function CardConnect({
       {iconGroup && (
         <span className="group-hover:text-yellow-500 transition-colors duration-300">
           <IconGroup className="size-16" />
+        </span>
+      )}
+      {iconUser && (
+        <span className="group-hover:text-yellow-500 transition-colors duration-300">
+          <IconUser className="size-16" />
         </span>
       )}
       <h3 className="text-2xl font-swash">{title}</h3>

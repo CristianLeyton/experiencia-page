@@ -16,15 +16,15 @@ export function Connect() {
             Iglesia Experiencia con Dios. */}
             Completa un formulario y nos pondremos en contacto contigo
             <br />
-{/*             <p className="text-zinc-500 dark:text-zinc-400 text-sm pt-1">
+            {/*             <p className="text-zinc-500 dark:text-zinc-400 text-sm pt-1">
               Completa un formulario y nos pondremos en contacto contigo
             </p> */}
           </div>
-          <img src={manosjuntas} alt="manosjuntas" className="aspect-video object-cover w-full md:w-xl xl:w-2xl rounded-xl shadow mx-auto card"  style={{ objectPosition: "center 35%" }} />
+          <img src={manosjuntas} alt="manosjuntas" className="aspect-video object-cover w-full md:w-xl xl:w-2xl rounded-xl shadow mx-auto card" style={{ objectPosition: "center 35%" }} />
 
         </div>
 
-        <section className="pt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <section className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           <CardConnect
             title="Bienvenido a casa"
             text="¿Es tu primera vez en nuestra iglesia? Quizá podamos compartir un café.  ¡Queremos conocerte!"
@@ -44,6 +44,13 @@ export function Connect() {
             text="Reuniones con grupos pequeños para compartir de forma más personal y conectar con otros miembros de Iglesia."
             iconGroup
             link="https://docs.google.com/forms/d/e/1FAIpQLSfzY5vLLmEHW6E7QYNTxM5qzqucxGVUkjy62vIdMLwSv7VEhQ/viewform"
+          />
+
+          <CardConnect
+            title="¡Registrate y conecta con nuestra comunidad!"
+            text="Si te registras nos ayudas a llevar un mejor seguimiento, y nos permite conocerte mejor."
+            iconUser
+            link="https://experienciacondios.online/registro"
           />
         </section>
       </div>
