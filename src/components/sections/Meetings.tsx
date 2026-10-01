@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import iconPin from "../../assets/images/marcador.png"; */
 import { Title } from "../utilities/Title";
 import { Card } from "../utilities/Card";
+import { LatestVideos } from "../utilities/LatestVideos";
 import reunion from "../../assets/images/reunion.webp";
 
 export function Meetings() {
@@ -90,6 +91,8 @@ export function Meetings() {
 
           </div>
         </article>
+
+        <LatestVideos />
       </div>
     </section>
   );

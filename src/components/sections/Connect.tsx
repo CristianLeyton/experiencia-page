@@ -24,7 +24,7 @@ export function Connect() {
 
         </div>
 
-        <section className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <section className="pt-8 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
           <CardConnect
             title="Bienvenido a casa"
             text="¿Es tu primera vez en nuestra iglesia? Quizá podamos compartir un café.  ¡Queremos conocerte!"

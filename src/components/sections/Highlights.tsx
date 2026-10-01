@@ -1,9 +1,27 @@
 import { Title } from "../utilities/Title";
-import sisterhood from "../../assets/images/anuncios/sisterhood.jpeg";
+/* import sisterhood from "../../assets/images/anuncios/sisterhood.jpeg"; */
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconTime } from "../icons/IconTime";
 import { IconChebron } from "../icons/IconChebron";
+
+/* export const HIGHLIGHTS: HighlightCardProps[] = [
+  {
+    title: "Sisterhood Conference",
+    text: `Este año nos volvemos a encontrar para vivir dos días que marcarán nuestro corazones.
+            Será un tiempo único para conectar entre mujeres y tener un encuentro con nuestro creador.`,
+    imageSrc: sisterhood,
+    imageAlt: "Sisterhood Conference",
+    date: "25 y 26 de Septiembre de 2026",
+    hour: "",
+    location: "Teatro Avenida - Av de mayo 1222, Ciudad de Buenos Aires",
+    link: "https://ticket.eventpass.click/hillsong/sisterhood-conference",
+  },
+];  */
+
+
+/* Dejarlo vacío este array para no mostrar nada en la sección de anuncios */
+ export const HIGHLIGHTS: HighlightCardProps[] = []; 
 
 type HighlightCardProps = {
   title: string;
@@ -30,14 +48,14 @@ function HighlightCard({
     <article className="bg-white dark:bg-primary rounded-xl overflow-hidden hover:border-yellow-500 transition-colors duration-300 border border-zinc-300 dark:border-zinc-700 group w-full md:max-w-sm xl:max-w-lg flex flex-col card">
       <div className="h-68 w-full overflow-hidden pt-4">
         {link && (
-        <a href={link} target="_blank">
-        <img
-          src={imageSrc}
-          alt={imageAlt}
-          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-        </a>
+          <a href={link} target="_blank">
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </a>
         )}
         {!link && (
           <img
@@ -59,26 +77,26 @@ function HighlightCard({
       </div>
 
       <div className="flex flex-col justify-center gap-2 text-sm text-zinc-800 dark:text-zinc-200 px-8 pb-6">
-      <p className="flex items-center gap-2">
-        {" "}
-        <IconCalendar className="text-yellow-500" /> <span>{date}</span>
-      </p>
-      {hour && (
         <p className="flex items-center gap-2">
-          <IconTime className="text-yellow-500" /> <span>{hour}</span>
+          {" "}
+          <IconCalendar className="text-yellow-500" /> <span>{date}</span>
         </p>
-      )}
-            <p className="flex items-center gap-2">
-        <IconMapPin className="text-yellow-500" />
-        <span>{location}</span>
-      </p>
+        {hour && (
+          <p className="flex items-center gap-2">
+            <IconTime className="text-yellow-500" /> <span>{hour}</span>
+          </p>
+        )}
+        <p className="flex items-center gap-2">
+          <IconMapPin className="text-yellow-500" />
+          <span>{location}</span>
+        </p>
 
-      {link && (
-        <a href={link} target="_blank" className="bg-yellow-500 text-white mt-4 px-4 py-2 rounded-full font-bold flex items-center justify-center gap-2 group">
-          Ver más
-          <IconChebron className="text-white size-5 mr-2 group-hover:translate-x-1 transition-all duration-300" />
-        </a>
-      )}
+        {link && (
+          <a href={link} target="_blank" className="bg-yellow-500 text-white mt-4 px-4 py-2 rounded-full font-bold flex items-center justify-center gap-2 group">
+            Ver más
+            <IconChebron className="text-white size-5 mr-2 group-hover:translate-x-1 transition-all duration-300" />
+          </a>
+        )}
 
       </div>
     </article>
@@ -86,6 +104,8 @@ function HighlightCard({
 }
 
 export function Highlights() {
+  if (HIGHLIGHTS.length === 0) return null;
+
   return (
     <section
       id="anuncios"
@@ -98,29 +118,20 @@ export function Highlights() {
             Descubre los anuncios más importantes de nuestra iglesia
           </p>
         </div>
-
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
-{/*           <HighlightCard
-            title="Nos visita Kevin Lutsch"
-            text="Kevin Lutsch nos visita desde Hillsong Buenos Aires, ademas de celebrar la santa cena, Kevin compartirá un mensaje especial para la familia, no te lo pierdas!"
-            imageSrc={visita}
-            imageAlt="Nos visita Kevin Lutsch desde Hillsong Buenos Aires"
-            date="Domingo 02 de Agosto"
-            hour="10:30hs - 12:00hs"
-            location="Hotel Brizo, Salón Quebrada"
-            link=""
-          /> */}
-          <HighlightCard
-            title="Sisterhood Conference"
-            text="Este año nos volvemos a encontrar para vivir dos días que marcarán nuestro corazones.
-            Será un tiempo único para conectar entre mujeres y tener un encuentro con nuestro creador."
-            imageSrc={sisterhood}
-            imageAlt="Sisterhood Conference"
-            date="25 y 26 de Septiembre de 2026"
-            hour=""
-            location="Teatro Avenida - Av de mayo 1222, Ciudad de Buenos Aires"
-            link="https://ticket.eventpass.click/hillsong/sisterhood-conference"
-          />
+          {HIGHLIGHTS.map((highlight) => (
+            <HighlightCard
+              key={highlight.title}
+              title={highlight.title}
+              text={highlight.text}
+              imageSrc={highlight.imageSrc}
+              imageAlt={highlight.imageAlt}
+              date={highlight.date || ""}
+              hour={highlight.hour || ""}
+              location={highlight.location || ""}
+              link={highlight.link || ""}
+            />
+          ))}
         </section>
       </div>
     </section>

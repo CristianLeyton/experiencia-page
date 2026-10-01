@@ -3,6 +3,7 @@ import { IconTime } from "../icons/IconTime";
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconParty } from "../icons/IconParty";
 import { Title } from "../utilities/Title";
+import { formatNextFirstSunday } from "../../utils/firstSunday";
 
 function EventCard({
   title,
@@ -36,17 +37,17 @@ function EventCard({
       </p>
 
       <div className="flex flex-col gap-2 text-sm text-zinc-800 dark:text-zinc-200">
-      <p className="flex items-center gap-2">
-        {" "}
-        <IconCalendar className="text-yellow-500" /> <span>{date}</span>
-      </p>
-      <p className="flex items-center gap-2">
-        <IconTime className="text-yellow-500" /> <span>{hour}</span>
-      </p>
-            <p className="flex items-center gap-2">
-        <IconMapPin className="text-yellow-500" />
-        <span>{location}</span>
-      </p>
+        <p className="flex items-center gap-2">
+          {" "}
+          <IconCalendar className="text-yellow-500" /> <span>{date}</span>
+        </p>
+        <p className="flex items-center gap-2">
+          <IconTime className="text-yellow-500" /> <span>{hour}</span>
+        </p>
+        <p className="flex items-center gap-2">
+          <IconMapPin className="text-yellow-500" />
+          <span>{location}</span>
+        </p>
       </div>
     </article>
   );
@@ -58,9 +59,9 @@ export function Events() {
       id="eventos"
       className="scroll-m-20 py-8 px-4 text-primary dark:text-white bg-secondary dark:bg-zinc-950"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto flex items-center justify-center flex-col gap-4">
         <div className="text-center flex flex-col gap-4">
-          <Title text="Eventos"/>
+          <Title text="Eventos" />
           <p className="xl:text-lg text-center">
             Proximos eventos en nuestra iglesia, estas invitado a participar,
             todos son completamente gratuitos. ¡Y puedes invitar a quien
@@ -72,11 +73,10 @@ export function Events() {
             title="Santa cena"
             text="Participemos juntos de la santa cena en familia. Recordamos la muerte y resurrección de nuestro Señor."
             location="Hotel Brizo, Salón Quebrada"
-            date="Domingo 04 de Septiembre"
+            date={formatNextFirstSunday()}
             hour="10:30hs"
           />
-
-{/*           <EventCard
+          {/*           <EventCard
             title="Especial Navidad"
             text="Estas invitado a nuestro evento de fin de año, tendremos un momento especial para adorar a nuestro Dios y compartir en comunidad. ¡No faltes!"
             location="Usina cultural - Teatro 'Macacha Güemes'"
@@ -85,6 +85,14 @@ export function Events() {
             iconParty
           /> */}
         </section>
+
+        {/* Agenda pública */}
+        <button className="bg-primary rounded-full px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm cursor-pointer card">
+          <a target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" href="https://experienciacondios.online/agenda-publica" title="Ver nuestra agenda pública de eventos y actividades">
+            <IconCalendar className="size-5" />
+            <span>Agenda pública</span>
+          </a>
+        </button>
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import { MenuHamburger } from "../utilities/MenuHamburger.tsx";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { scrollToSectionWhenReady } from "../../utils/scrollToSection";
+import { HIGHLIGHTS } from "./Highlights.tsx";
 
 type ItemProps = {
   href: string;
@@ -108,9 +109,11 @@ justify-center
             <Item href="/#eventos" onOpenMenu={handleoOpenMenu}>
               Eventos
             </Item>
-            <Item href="/#anuncios" onOpenMenu={handleoOpenMenu}>
-              Anuncios
-            </Item>
+            {HIGHLIGHTS.length > 0 && (
+              <Item href="/#anuncios" onOpenMenu={handleoOpenMenu}>
+                Anuncios
+              </Item>
+            )}
             <Item href="/#contribuir" onOpenMenu={handleoOpenMenu}>
               Contribuir
             </Item>

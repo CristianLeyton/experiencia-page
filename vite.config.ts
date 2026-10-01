@@ -7,5 +7,18 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
     build: {
     outDir: "dist"
-  }
+  },
+  server: {
+    // En desarrollo la función serverless de /api no existe (solo corre en
+    // Vercel), así que pedimos el feed de YouTube directo desde Node, que no
+    // sufre el bloqueo CORS del navegador.
+    proxy: {
+      "/api/ultimos-videos": {
+        target: "https://www.youtube.com",
+        changeOrigin: true,
+        rewrite: () =>
+          "/feeds/videos.xml?channel_id=UCsh1fIhlueGZKl-eraCXjOA",
+      },
+    },
+  },
 })
