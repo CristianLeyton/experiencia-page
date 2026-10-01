@@ -114,9 +114,44 @@ async function fetchViaRssFeeds(): Promise<FeedVideo[]> {
 }
 
 /**
- * Estrategia 2 (fallback): scrapear la página de videos del canal y extraer
- * los videoIds del JSON embebido. Título y fecha se completan después con
- * otros endpoints públicos (oEmbed + página watch).
+ * Convierte el texto relativo de YouTube ("hace 8 días", "10 months ago")
+ * en una fecha ISO aproximada. Es la misma precisión que muestra YouTube
+ * públicamente sin sesión iniciada.
+ */
+function relativeTextToIso(text: string): string {
+  const value = Number(text.toLowerCase().match(/\d+/)?.[0]);
+  const unit = text
+    .toLowerCase()
+    .match(/(minuto|hora|d[ií]a|semana|mes|a[ñn]o|minute|hour|day|week|month|year)/)
+    ?.[1];
+  if (!value || !unit) return "";
+
+  const unitMs: Record<string, number> = {
+    minuto: 60_000,
+    hora: 3_600_000,
+    "día": 86_400_000,
+    dia: 86_400_000,
+    semana: 7 * 86_400_000,
+    mes: 30 * 86_400_000,
+    "año": 365 * 86_400_000,
+    ano: 365 * 86_400_000,
+    minute: 60_000,
+    hour: 3_600_000,
+    day: 86_400_000,
+    week: 7 * 86_400_000,
+    month: 30 * 86_400_000,
+    year: 365 * 86_400_000,
+  };
+
+  return new Date(Date.now() - value * (unitMs[unit] ?? 0)).toISOString();
+}
+
+/**
+ * Estrategia 2 (fallback): scrapear la página de videos del canal. Cada video
+ * vive en un objeto lockupViewModel que incluye id, título y fecha relativa
+ * ("hace 8 días" / "8 days ago") en metadataParts. Con eso armamos las tres
+ * tarjetas sin depender de la página watch (que YouTube suele bloquear a las
+ * IPs de datacenter); los datos que falten se completan después con oEmbed.
  */
 async function fetchViaChannelPage(): Promise<FeedVideo[]> {
   const res = await withRetries(() =>
@@ -125,13 +160,39 @@ async function fetchViaChannelPage(): Promise<FeedVideo[]> {
   if (!res || !res.ok) return [];
 
   const html = await res.text();
-  const videoIds = [...html.matchAll(/"videoId":"([A-Za-z0-9_-]{11})"/g)]
-    .map((m) => m[1])
-    // El primer video puede repetirse en "Featured" y en la grilla.
-    .filter((id, index, all) => all.indexOf(id) === index)
-    .slice(0, MAX_VIDEOS);
+  const chunks = html.split('"lockupViewModel":').slice(1);
+  const videos: FeedVideo[] = [];
 
-  return videoIds.map((id) => ({ id, title: "", published: "" }));
+  for (const chunk of chunks) {
+    const id = chunk.match(/"videoId":"([A-Za-z0-9_-]{11})"/)?.[1];
+    if (!id) continue;
+
+    // El primer video puede repetirse ("Featured" + grilla).
+    if (videos.some((video) => video.id === id)) continue;
+
+    const title =
+      chunk
+        .match(/"lockupMetadataViewModel":\{"title":\{"content":"((?:\\.|[^"\\])*)"/)?.[1]
+        ?.replace(/\\u0026/g, "&")
+        .replace(/\\"/g, '"')
+        .replace(/\\\\/g, "\\") ?? "";
+
+    const publishedText =
+      // Preferimos el accessibilityLabel de metadataParts, que trae la fecha
+      // completa ("hace 2 semanas"), antes que la abreviada ("hace 2 sem.").
+      chunk.match(
+        /"metadataParts":\[[\s\S]{0,500}?"accessibilityLabel":"((?:[Hh]ace [^"]{1,40})|[^"]{1,40} ago)"/
+      )?.[1] ??
+      chunk.match(
+        /"content":"((?:[Hh]ace [^"]{1,40})|\d{1,3} (?:minute|hour|day|week|month|year)s? ago)"/
+      )?.[1] ??
+      "";
+
+    videos.push({ id, title, published: relativeTextToIso(publishedText) });
+    if (videos.length >= MAX_VIDEOS) break;
+  }
+
+  return videos;
 }
 
 /** Título oficial del video vía el oEmbed público de YouTube (sin límites). */
@@ -150,47 +211,60 @@ async function fetchOembedTitle(id: string): Promise<string> {
   }
 }
 
-/** Fecha ISO de publicación del video, extraída del JSON embebido en su página watch. */
-async function fetchWatchPublishedDate(id: string): Promise<string> {
+/**
+ * Fecha EXACTA de publicación vía la API interna pública de YouTube
+ * (youtubei/v1/player), que no requiere API key y devuelve el microformato
+ * del video con publishDate. Reemplaza el scraping de la página watch, que
+ * YouTube suele bloquear a las IPs de datacenter (de ahí venían las fechas
+ * vacías en producción).
+ */
+async function fetchExactPublishedDate(id: string): Promise<string> {
   const res = await withRetries(() =>
-    fetchWithTimeout(`https://www.youtube.com/watch?v=${id}`)
+    fetch("https://www.youtube.com/youtubei/v1/player", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      body: JSON.stringify({
+        context: {
+          client: {
+            clientName: "WEB",
+            clientVersion: "2.20240101.00.00",
+            hl: "es",
+          },
+        },
+        videoId: id,
+      }),
+    })
   );
   if (!res || !res.ok) return "";
 
-  const html = await res.text();
-  const iso = html.match(/"uploadDate":"(\d{4}-\d{2}-\d{2}T[^"]+)"/)?.[1];
-  if (iso) {
-    // Ya viene con zona horaria (Z u offset tipo -07:00) en la mayoría de
-    // los casos; solo completamos Z si YouTube omitió el offset.
-    return /Z$|[+-]\d{2}:\d{2}$/.test(iso) ? iso : `${iso}Z`;
+  try {
+    const data = (await res.json()) as {
+      microformat?: {
+        playerMicroformatRenderer?: { publishDate?: string; uploadDate?: string };
+      };
+    };
+    const microformat = data.microformat?.playerMicroformatRenderer;
+    return microformat?.publishDate ?? microformat?.uploadDate ?? "";
+  } catch {
+    return "";
   }
-
-  const relative = html.match(
-    /"publishedTimeText":\{"simpleText":"([^"\\]+)(?: day| week| month| year)s? ago"\}/
-  )?.[1];
-  if (!relative) return "";
-
-  const value = Number(relative.match(/\d+/)?.[0]);
-  const unit = relative.match(/ (day|week|month|year)/)?.[1];
-  if (!value || !unit) return "";
-
-  const unitDays: Record<string, number> = { day: 1, week: 7, month: 30, year: 365 };
-  const ms = (unitDays[unit] ?? 0) * value * 86_400_000;
-  return new Date(Date.now() - ms).toISOString();
 }
 
-/** Completa título y fecha de los videos que vengan del fallback. */
+/**
+ * Completa los datos del fallback: título vía oEmbed y fecha exacta vía
+ * youtubei. Si youtubei falla, se conserva la fecha aproximada calculada del
+ * texto relativo ("hace 2 semanas"), que es mejor que no mostrar nada.
+ */
 async function enrichFallbackVideos(videos: FeedVideo[]): Promise<FeedVideo[]> {
   return Promise.all(
     videos.map(async (video) => {
-      if (video.title && video.published) return video;
-
-      const [title, published] = await Promise.all([
-        fetchOembedTitle(video.id),
-        fetchWatchPublishedDate(video.id),
+      const [exactDate, title] = await Promise.all([
+        fetchExactPublishedDate(video.id),
+        video.title ? Promise.resolve(video.title) : fetchOembedTitle(video.id),
       ]);
 
-      return { ...video, title, published };
+      return { ...video, title, published: exactDate || video.published };
     })
   );
 }
