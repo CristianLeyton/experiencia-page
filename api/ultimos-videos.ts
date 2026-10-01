@@ -115,8 +115,8 @@ async function fetchViaRssFeeds(): Promise<FeedVideo[]> {
 
 /**
  * Estrategia 2 (fallback): scrapear la página de videos del canal y extraer
- * los videoIds del JSON embebido. No da la fecha de publicación, así que se
- * usa la fecha actual como referencia aproximada.
+ * los videoIds del JSON embebido. Título y fecha se completan después con
+ * otros endpoints públicos (oEmbed + página watch).
  */
 async function fetchViaChannelPage(): Promise<FeedVideo[]> {
   const res = await withRetries(() =>
@@ -131,8 +131,68 @@ async function fetchViaChannelPage(): Promise<FeedVideo[]> {
     .filter((id, index, all) => all.indexOf(id) === index)
     .slice(0, MAX_VIDEOS);
 
-  const now = new Date().toISOString();
-  return videoIds.map((id) => ({ id, title: "", published: now }));
+  return videoIds.map((id) => ({ id, title: "", published: "" }));
+}
+
+/** Título oficial del video vía el oEmbed público de YouTube (sin límites). */
+async function fetchOembedTitle(id: string): Promise<string> {
+  const res = await withRetries(() =>
+    fetchWithTimeout(
+      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`
+    )
+  );
+  if (!res || !res.ok) return "";
+  try {
+    const data = (await res.json()) as { title?: string };
+    return data.title ?? "";
+  } catch {
+    return "";
+  }
+}
+
+/** Fecha ISO de publicación del video, extraída del JSON embebido en su página watch. */
+async function fetchWatchPublishedDate(id: string): Promise<string> {
+  const res = await withRetries(() =>
+    fetchWithTimeout(`https://www.youtube.com/watch?v=${id}`)
+  );
+  if (!res || !res.ok) return "";
+
+  const html = await res.text();
+  const iso = html.match(/"uploadDate":"(\d{4}-\d{2}-\d{2}T[^"]+)"/)?.[1];
+  if (iso) {
+    // Ya viene con zona horaria (Z u offset tipo -07:00) en la mayoría de
+    // los casos; solo completamos Z si YouTube omitió el offset.
+    return /Z$|[+-]\d{2}:\d{2}$/.test(iso) ? iso : `${iso}Z`;
+  }
+
+  const relative = html.match(
+    /"publishedTimeText":\{"simpleText":"([^"\\]+)(?: day| week| month| year)s? ago"\}/
+  )?.[1];
+  if (!relative) return "";
+
+  const value = Number(relative.match(/\d+/)?.[0]);
+  const unit = relative.match(/ (day|week|month|year)/)?.[1];
+  if (!value || !unit) return "";
+
+  const unitDays: Record<string, number> = { day: 1, week: 7, month: 30, year: 365 };
+  const ms = (unitDays[unit] ?? 0) * value * 86_400_000;
+  return new Date(Date.now() - ms).toISOString();
+}
+
+/** Completa título y fecha de los videos que vengan del fallback. */
+async function enrichFallbackVideos(videos: FeedVideo[]): Promise<FeedVideo[]> {
+  return Promise.all(
+    videos.map(async (video) => {
+      if (video.title && video.published) return video;
+
+      const [title, published] = await Promise.all([
+        fetchOembedTitle(video.id),
+        fetchWatchPublishedDate(video.id),
+      ]);
+
+      return { ...video, title, published };
+    })
+  );
 }
 
 export default async function handler(
@@ -159,7 +219,7 @@ export default async function handler(
     let videos = await fetchViaRssFeeds();
 
     if (videos.length === 0) {
-      videos = await fetchViaChannelPage();
+      videos = await enrichFallbackVideos(await fetchViaChannelPage());
     }
 
     // Con videos: cache normal (5 min). Vacío: solo 20s, para que el próximo
