@@ -103,7 +103,9 @@ export function Events() {
         </div>
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
           {events
-            .filter((event) => event.endDate === null || event.endDate > todayKey)
+            .filter(
+              (event) => event.endDate === null || event.endDate > todayKey,
+            )
             .map((event) => (
               <EventCard key={event.title} {...event} />
             ))}
