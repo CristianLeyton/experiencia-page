@@ -38,7 +38,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-dvh w-full overflow-hidden text-white bg-primary"
+      className="relative h-svh w-full overflow-hidden text-white bg-primary"
     >
       {/* Video background */}
       <video

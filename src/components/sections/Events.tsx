@@ -5,6 +5,36 @@ import { IconParty } from "../icons/IconParty";
 import { Title } from "../utilities/Title";
 import { formatNextFirstSunday } from "../../utils/firstSunday";
 
+const events = [
+  {
+    title: "Especial Día de la Madre",
+    text: "¡Día de la Madre! ¡Celebremos en familia!",
+    location: "Hotel Brizo, Salón Quebrada",
+    date: "Domingo 18 de Octubre",
+    hour: "10:30hs",
+    iconParty: true,
+    endDate: "2026-10-18",
+  },
+  {
+    title: "Dedicación de bebés y niños",
+    text: "Presentación de los niños y bebés de nuestra iglesia. Oremos y agradezcamos por sus vidas.",
+    location: "Hotel Brizo, Salón Quebrada",
+    date: "Domingo 25 de Octubre",
+    hour: "10:30hs",
+    iconParty: false,
+    endDate: "2026-10-25",
+  },
+  {
+    title: "Santa cena",
+    text: "Participemos juntos de la santa cena en familia. Recordamos la muerte y resurrección de nuestro Señor.",
+    location: "Hotel Brizo, Salón Quebrada",
+    date: formatNextFirstSunday(),
+    hour: "10:30hs",
+    iconParty: false,
+    endDate: null,
+  },
+];
+
 function EventCard({
   title,
   text,
@@ -54,6 +84,9 @@ function EventCard({
 }
 
 export function Events() {
+  const today = new Date();
+  const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
   return (
     <section
       id="eventos"
@@ -69,26 +102,22 @@ export function Events() {
           </p>
         </div>
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
-          <EventCard
-            title="Santa cena"
-            text="Participemos juntos de la santa cena en familia. Recordamos la muerte y resurrección de nuestro Señor."
-            location="Hotel Brizo, Salón Quebrada"
-            date={formatNextFirstSunday()}
-            hour="10:30hs"
-          />
-          {/*           <EventCard
-            title="Especial Navidad"
-            text="Estas invitado a nuestro evento de fin de año, tendremos un momento especial para adorar a nuestro Dios y compartir en comunidad. ¡No faltes!"
-            location="Usina cultural - Teatro 'Macacha Güemes'"
-            date="Domingo 21 de Diciembre"
-            hour="19:30hs"
-            iconParty
-          /> */}
+          {events
+            .filter((event) => event.endDate === null || event.endDate > todayKey)
+            .map((event) => (
+              <EventCard key={event.title} {...event} />
+            ))}
         </section>
 
         {/* Agenda pública */}
         <button className="bg-primary rounded-full px-3 py-1.5 text-white dark:text-primary dark:bg-white font-semibold hover:bg-yellow-500 transition-colors duration-300 active:bg-yellow-500 text-sm cursor-pointer card">
-          <a target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" href="https://experienciacondios.online/agenda-publica" title="Ver nuestra agenda pública de eventos y actividades">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+            href="https://experienciacondios.online/agenda-publica"
+            title="Ver nuestra agenda pública de eventos y actividades"
+          >
             <IconCalendar className="size-5" />
             <span>Agenda pública</span>
           </a>
