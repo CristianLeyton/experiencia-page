@@ -2,6 +2,8 @@ import { IconFacebook } from "../icons/IconFacebook";
 import { IconInstagram } from "../icons/IconInstagram";
 import { IconYoutube } from "../icons/IconYoutube";
 import { IconChevronDown } from "../icons/IconChevronDown";
+import { IconWhatsApp } from "../icons/IconWhatsApp";
+
 /* 
 import Poster from "../../assets/images/reunion.webp"; */
 import IntroVideoMp4 from "../../assets/videos/intro-2026.mp4";
@@ -13,6 +15,7 @@ const redes = {
   instagram: "https://www.instagram.com/experienciacondios/",
   facebook: "https://web.facebook.com/iglesiaexperienciacondios",
   youtube: "https://www.youtube.com/@ExperienciaconDios",
+  whatsapp: "https://whatsapp.com/channel/0029VbC8NfeCHDyoSMLI9E3l",
 };
 
 export function Hero() {
@@ -94,7 +97,7 @@ export function Hero() {
         </div>
 
         {/* Redes */}
-        <div className="flex gap-5 items-center *:hover:text-yellow-500 *:transition-colors *:duration-300">
+        <div className="flex gap-6 items-center *:hover:text-yellow-500 *:transition-colors *:duration-300">
           <a href={redes.instagram} target="_blank" rel="noopener noreferrer">
             <IconInstagram className="size-10 md:size-12" />
           </a>
@@ -103,6 +106,9 @@ export function Hero() {
           </a>
           <a href={redes.youtube} target="_blank" rel="noopener noreferrer">
             <IconYoutube className="size-11 md:size-13" />
+          </a>
+          <a href={redes.whatsapp} target="_blank" rel="noopener noreferrer">
+            <IconWhatsApp className="size-9.5 md:size-10.5" />
           </a>
         </div>
 
