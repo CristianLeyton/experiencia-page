@@ -108,7 +108,7 @@ export function Hero() {
             <IconYoutube className="size-11 md:size-13" />
           </a>
           <a href={redes.whatsapp} target="_blank" rel="noopener noreferrer">
-            <IconWhatsApp className="size-9.5 md:size-10.5" />
+            <IconWhatsApp className="size-10 md:size-11" />
           </a>
         </div>
 
