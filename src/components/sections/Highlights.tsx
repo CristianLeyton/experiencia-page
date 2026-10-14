@@ -1,27 +1,50 @@
 import { Title } from "../utilities/Title";
-/* import sisterhood from "../../assets/images/anuncios/sisterhood.jpeg"; */
+import casaAbierta from "../../assets/images/anuncios/casa-abierta.jpeg";
+import diaMadre from "../../assets/images/anuncios/dia-de-la-madre.png";
+import dedicacion from "../../assets/images/anuncios/dedicacion-de-bebes.png";
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconTime } from "../icons/IconTime";
 import { IconChebron } from "../icons/IconChebron";
 
-/* export const HIGHLIGHTS: HighlightCardProps[] = [
+export const HIGHLIGHTS: HighlightCardProps[] = [
   {
-    title: "Sisterhood Conference",
-    text: `Este año nos volvemos a encontrar para vivir dos días que marcarán nuestro corazones.
-            Será un tiempo único para conectar entre mujeres y tener un encuentro con nuestro creador.`,
-    imageSrc: sisterhood,
-    imageAlt: "Sisterhood Conference",
-    date: "25 y 26 de Septiembre de 2026",
-    hour: "",
-    location: "Teatro Avenida - Av de mayo 1222, Ciudad de Buenos Aires",
-    link: "https://ticket.eventpass.click/hillsong/sisterhood-conference",
+    title: "Dia de la madre",
+    text: `Celebra el Dia de la Madre con nosotros en familia. Una reunion especial para celebrar a las mades, con testimonios y un ambiente lleno de amor y gratitud.`,
+    imageSrc: diaMadre,
+    imageAlt: "Dia de la madre",
+    date: "18 de Octubre de 2026",
+    hour: "10:00 AM - 12:00 PM",
+    location: `Hotel Brizo, Salón Quebrada - Belgrano y 25 de Mayo, Salta`,
+    link: "",
+    endDate: "2026-10-18",
   },
-];  */
-
+  {
+    title: "Dedicación de bebes y niños",
+    text: `Presentamos y oramos por los más pequeños de nuestra iglesia. «Dejen que los niños vengan a mí; no se lo impidan, porque el reino de los cielos es de quienes son como ellos.»`,
+    imageSrc: dedicacion,
+    imageAlt: "Dedicación de bebes y niños",
+    date: "25 de Octubre de 2026",
+    hour: "10:00 AM - 12:00 PM",
+    location: `Hotel Brizo, Salón Quebrada - Belgrano y 25 de Mayo, Salta`,
+    link: "",
+    endDate: "2026-10-25",
+  },
+  {
+    title: "Casa Abierta 2027",
+    text: `Gran evento de la igelsia Hillsong Argentina en el Centro de Convenciones BA. Con la visita especial del pastor Cash Luna y de Israel Houghton grabando junto a Hillsong en Español ¡En vivo!`,
+    imageSrc: casaAbierta,
+    imageAlt: "Casa Abierta 2027",
+    date: "25, 26 y 27 de Febrero de 2027",
+    hour: "Desde el Jueves 25 a las 18:00hs",
+    location: `Centro de Convenciones Buenos Aires - Av. Pres. Figueroa Alcorta 2099, C1112ACA Cdad. Autónoma de Buenos Aires`,
+    link: "https://hillsong.fint.app/eventos/casa-abierta-2027",
+    endDate: "2027-02-27",
+  },
+];
 
 /* Dejarlo vacío este array para no mostrar nada en la sección de anuncios */
- export const HIGHLIGHTS: HighlightCardProps[] = []; 
+/*  export const HIGHLIGHTS: HighlightCardProps[] = [];  */
 
 type HighlightCardProps = {
   title: string;
@@ -32,6 +55,7 @@ type HighlightCardProps = {
   hour?: string;
   location: string;
   link?: string;
+  endDate?: string | null;
 };
 
 function HighlightCard({
@@ -79,25 +103,30 @@ function HighlightCard({
       <div className="flex flex-col justify-center gap-2 text-sm text-zinc-800 dark:text-zinc-200 px-8 pb-6">
         <p className="flex items-center gap-2">
           {" "}
-          <IconCalendar className="text-yellow-500" /> <span>{date}</span>
+          <IconCalendar className="text-yellow-500 shrink-0" />{" "}
+          <span>{date}</span>
         </p>
         {hour && (
           <p className="flex items-center gap-2">
-            <IconTime className="text-yellow-500" /> <span>{hour}</span>
+            <IconTime className="text-yellow-500 shrink-0" />{" "}
+            <span>{hour}</span>
           </p>
         )}
         <p className="flex items-center gap-2">
-          <IconMapPin className="text-yellow-500" />
+          <IconMapPin className="text-yellow-500 shrink-0" />
           <span>{location}</span>
         </p>
 
         {link && (
-          <a href={link} target="_blank" className="bg-yellow-500 text-white mt-4 px-4 py-2 rounded-full font-bold flex items-center justify-center gap-2 group">
+          <a
+            href={link}
+            target="_blank"
+            className="bg-yellow-500 text-white mt-4 px-4 py-2 rounded-full font-bold flex items-center justify-center gap-2 group"
+          >
             Ver más
             <IconChebron className="text-white size-5 mr-2 group-hover:translate-x-1 transition-all duration-300" />
           </a>
         )}
-
       </div>
     </article>
   );
@@ -119,7 +148,11 @@ export function Highlights() {
           </p>
         </div>
         <section className="flex items-center flex-wrap justify-center gap-6 py-6">
-          {HIGHLIGHTS.map((highlight) => (
+          {HIGHLIGHTS.filter(
+            (highlight) =>
+              highlight.endDate === null ||
+              new Date(highlight.endDate!) > new Date(),
+          ).map((highlight) => (
             <HighlightCard
               key={highlight.title}
               title={highlight.title}
