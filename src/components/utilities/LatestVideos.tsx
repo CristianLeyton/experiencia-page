@@ -41,7 +41,7 @@ function VideoCard({ video }: { video: FeedVideo }) {
 
   return (
     <article className="bg-white dark:bg-primary rounded-xl overflow-hidden border border-zinc-300 dark:border-zinc-700 hover:border-yellow-500 transition-colors duration-300 group w-full card">
-      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-900">
+      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-900 card">
         {playing ? (
           <iframe
             className="absolute inset-0 size-full"

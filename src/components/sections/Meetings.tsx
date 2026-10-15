@@ -1,7 +1,3 @@
-/* import { useEffect } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import iconPin from "../../assets/images/marcador.png"; */
 import { Title } from "../utilities/Title";
 import { Card } from "../utilities/Card";
 import { LatestVideos } from "../utilities/LatestVideos";
@@ -9,38 +5,6 @@ import reunion from "../../assets/images/reunion.webp";
 
 export function Meetings() {
   const linkGoogle = "https://maps.app.goo.gl/qDgKSWTS7CKc9bgJA";
-
-/*   useEffect(() => {
-    const coord = {
-      X: -24.786853,
-      Y: -65.414772,
-    };
-
-    const map = L.map("map").setView([coord.X, coord.Y], 17);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution: "Map © OpenStreetMap",
-    }).addTo(map);
-
-    const marcador = L.icon({
-      iconUrl: iconPin,
-      iconSize: [25, 60],
-      popupAnchor: [0, -35],
-    });
-
-    const marker = L.marker([coord.X, coord.Y], { icon: marcador }).addTo(map);
-
-    marker.bindPopup(`
-    <b>¡Nuestra ubicación!</b><br>
-    <a href=${linkGoogle} target='_blank'>Cómo llegar</a>
-  `);
-
-    // 👉 Limpieza correcta para TypeScript
-    return () => {
-      map.remove();
-    };
-  }, []); */
 
   return (
     <section
@@ -52,7 +16,7 @@ export function Meetings() {
           <Title text="Nuestras reuniones" />
           <p className="xl:text-lg">
             Un tiempo de alabanza, enseñanza de la Palabra y comunión. Estas
-            invitado a cualquiera de nuestras reuniones generales.
+            invitado a ser parte de nuestra reunión general.
           </p>
 
           <img src={reunion} alt="reuniones" className="aspect-video object-cover w-4xl rounded-xl shadow mx-auto card" />
