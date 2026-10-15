@@ -41,7 +41,7 @@ function VideoCard({ video }: { video: FeedVideo }) {
 
   return (
     <article className="bg-white dark:bg-primary rounded-xl overflow-hidden border border-zinc-300 dark:border-zinc-700 hover:border-yellow-500 transition-colors duration-300 group w-full card">
-      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-900 card">
+      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-900">
         {playing ? (
           <iframe
             className="absolute inset-0 size-full"
@@ -146,19 +146,19 @@ export function LatestVideos() {
       </div>
 
       {videos === null ? (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl card">
           {Array.from({ length: MAX_VIDEOS }, (_, i) => (
             <VideoSkeleton key={i} />
           ))}
         </div>
       ) : videos.length > 0 ? (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl card">
           {videos.map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}
         </div>
       ) : (
-        <p className="text-sm text-gray-600 dark:text-gray-300">
+        <p className="text-sm text-gray-600 dark:text-gray-300 card">
           No pudimos cargar los videos en este momento. Visitanos directamente en{" "}
           <a
             href={CHANNEL_URL}

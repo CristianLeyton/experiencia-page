@@ -19,7 +19,11 @@ export function Meetings() {
             invitado a ser parte de nuestra reunión general.
           </p>
 
-          <img src={reunion} alt="reuniones" className="aspect-video object-cover w-4xl rounded-xl shadow mx-auto card" />
+          <img
+            src={reunion}
+            alt="reuniones"
+            className="aspect-video object-cover w-4xl rounded-xl shadow mx-auto card"
+          />
         </div>
 
         <article className="grid md:grid-cols-2 gap-6 items-center justify-items-center mt-6">
@@ -31,12 +35,13 @@ export function Meetings() {
                   target="_blank"
                   className="hover:text-yellow-500 transition-colors duration-300 active:text-yellow-500"
                 >
-                  <span className="font-semibold">Direccion:</span> Belgrano y 25 de Mayo, Salta
+                  <span className="font-semibold">Direccion:</span> Belgrano y
+                  25 de Mayo, Salta
                 </a>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   Se ingresa al salón Quebrada en el primer piso del hotel
-                  Brizo, por la entrada de la esquina entre Av.
-                  Belgrano y 25 de Mayo.
+                  Brizo, por la entrada de la esquina entre Av. Belgrano y 25 de
+                  Mayo.
                 </p>
                 <p className="font-semibold text-xl  xl:text-2xl group-hover:scale-105 group-hover:text-yellow-500 transition-all duration-300">
                   ¡Te esperamos!
@@ -47,16 +52,20 @@ export function Meetings() {
             <Card title="Reunion general" text="Domingo 10:30hs" iconTime />
           </div>
           <div className="w-full xl:w-[80%] h-full p-1 bg-white rounded-xl card">
-{/*             <div
+            {/*             <div
               id="map"
               className="h-[250px] md:h-full lg:h-[360px] w-full rounded-xl z-0"
             ></div> */}
-            <iframe className="h-[250px] md:h-full lg:h-[360px] w-full rounded-xl z-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.2514154130326!2d-65.41742392381015!3d-24.786843107756987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3ba42825995%3A0xca4c99f592055797!2s25%20de%20Mayo%20212%2C%20A4400%20Salta!5e0!3m2!1ses!2sar!4v1764379141072!5m2!1ses!2sar"></iframe>
-
+            <iframe
+              className="h-[250px] md:h-full lg:h-[360px] w-full rounded-xl z-0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.2514154130326!2d-65.41742392381015!3d-24.786843107756987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3ba42825995%3A0xca4c99f592055797!2s25%20de%20Mayo%20212%2C%20A4400%20Salta!5e0!3m2!1ses!2sar!4v1764379141072!5m2!1ses!2sar"
+            ></iframe>
           </div>
         </article>
 
-        <LatestVideos />
+        <div className="card">
+          <LatestVideos />
+        </div>
       </div>
     </section>
   );
