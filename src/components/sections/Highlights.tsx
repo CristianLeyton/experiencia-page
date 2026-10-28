@@ -1,7 +1,7 @@
 import { Title } from "../utilities/Title";
 import casaAbierta from "../../assets/images/anuncios/casa-abierta.jpeg";
-import diaMadre from "../../assets/images/anuncios/dia-de-la-madre.png";
-import dedicacion from "../../assets/images/anuncios/dedicacion-de-bebes.png";
+import corazonPorLaCasa from "../../assets/images/anuncios/corazonPorLaCasa.jpeg";
+import mejorIglesia from "../../assets/images/anuncios/unnamed.jpg";
 import { IconCalendar } from "../icons/IconCalendar";
 import { IconMapPin } from "../icons/IconMapPin";
 import { IconTime } from "../icons/IconTime";
@@ -9,26 +9,28 @@ import { IconChebron } from "../icons/IconChebron";
 
 export const HIGHLIGHTS: HighlightCardProps[] = [
   {
-    title: "Dia de la madre",
-    text: `Celebra el Dia de la Madre con nosotros en familia. Una reunion especial para celebrar a las mades, con testimonios y un ambiente lleno de amor y gratitud.`,
-    imageSrc: diaMadre,
-    imageAlt: "Dia de la madre",
-    date: "18 de Octubre de 2026",
-    hour: "10:00 AM - 12:00 PM",
+    title: "Intensivo Mejor Iglesia",
+    text: `Únete a nosotros en un espacio de crecimiento y liderazgo para impulsar el avance de Su Iglesia.
+Este evento exclusivo está diseñado para pastores, líderes y equipos que buscan fortalecer su liderazgo y trabajar juntos hacia un objetivo común.
+No te pierdas esta oportunidad única y totalmente sin costo.`,
+    imageSrc: mejorIglesia,
+    imageAlt: "Mejor Iglesia",
+    date: "Martes 10 de Noviembre de 2026",
+    hour: "19:30hs",
     location: `Hotel Brizo, Salón Quebrada - Belgrano y 25 de Mayo, Salta`,
-    link: "",
-    endDate: "2026-10-18",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSer8VByNsrQ9HbEUH30cJ1qPXL3GPuIUMxM7qFPy9AF4nxyjA/viewform",
+    endDate: "2026-11-10",
   },
   {
-    title: "Dedicación de bebes y niños",
-    text: `Presentamos y oramos por los más pequeños de nuestra iglesia. «Dejen que los niños vengan a mí; no se lo impidan, porque el reino de los cielos es de quienes son como ellos.»`,
-    imageSrc: dedicacion,
-    imageAlt: "Dedicación de bebes y niños",
-    date: "25 de Octubre de 2026",
-    hour: "10:00 AM - 12:00 PM",
+    title: "Corazón por la Casa",
+    text: `Nuestra ofrenda Corazón por la Casa es una ofrenda anual que está por encima y más allá de nuestros diezmos y ofrendas habituales. A medida que entramos en una nueva era, estamos entusiasmados de continuar construyendo la misión de nuestra iglesia.`,
+    imageSrc: corazonPorLaCasa,
+    imageAlt: "Corazón por la Casa",
+    date: "Domingo 15 de Noviembre de 2026",
+    hour: "10:30hs",
     location: `Hotel Brizo, Salón Quebrada - Belgrano y 25 de Mayo, Salta`,
     link: "",
-    endDate: "2026-10-25",
+    endDate: "2026-11-15",
   },
   {
     title: "Casa Abierta 2027",

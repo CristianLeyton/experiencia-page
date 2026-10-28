@@ -7,15 +7,6 @@ import { formatNextFirstSunday } from "../../utils/firstSunday";
 
 const events = [
   {
-    title: "Especial Día de la Madre",
-    text: "¡Día de la Madre! ¡Celebremos en familia!",
-    location: "Hotel Brizo, Salón Quebrada",
-    date: "Domingo 18 de Octubre",
-    hour: "10:30hs",
-    iconParty: true,
-    endDate: "2026-10-18",
-  },
-  {
     title: "Dedicación de bebés y niños",
     text: "Presentación de los niños y bebés de nuestra iglesia. Oremos y agradezcamos por sus vidas.",
     location: "Hotel Brizo, Salón Quebrada",
